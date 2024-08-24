@@ -6,9 +6,9 @@ const PanelLayout: TFCChildren = ({ children }) => {
   return (
     <div className="flex text-black dark:text-white-dark">
       <Sidebar />
-      <div className="relative h-screen w-full ltr:ml-64 rtl:mr-64 ">
+      <div className="relative h-screen w-full lg:ltr:ml-64 lg:rtl:mr-64 ">
         <Header />
-        <main className="h-screen ">{children}</main>
+        <main className="h-screen">{children}</main>
       </div>
     </div>
   );
