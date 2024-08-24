@@ -1,17 +1,20 @@
 "use client";
 import IconSearch from "@/core/icons/icon-search";
 import IconXCircle from "@/core/icons/icon-x-circle";
-import search, { onSearchChange } from "@/stores/slices/search";
+import search, {
+  onSearchChange,
+  TSearchSelector,
+} from "@/stores/slices/search";
 import { useDispatch, useSelector } from "react-redux";
 
 const Search = () => {
-  const searchValue = useSelector((state) => state.searchSlice.value);
+  const searchValue = useSelector<TSearchSelector>(
+    (state) => state.searchSlice.value
+  );
   const dispatch = useDispatch();
   const setSearch = (value: boolean | string) => {
     dispatch(onSearchChange(value));
-    console.log("value", value);
   };
-  console.log("searchValue", searchValue);
   return (
     <div className="sm:ltr:mr-auto sm:rtl:ml-auto">
       <form
