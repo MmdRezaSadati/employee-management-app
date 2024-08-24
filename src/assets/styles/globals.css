@@ -7,6 +7,12 @@ body {
   padding: 0;
 }
 
+@layer base {
+  body {
+    @apply bg-[#fafafa] dark:bg-[#060818];
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

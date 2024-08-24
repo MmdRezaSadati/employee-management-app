@@ -18,12 +18,12 @@ const SidebarLink: FC<{
       <Link
         href={href}
         className={
-          `${isActive ? "bg-black/10 hover:!bg-black/10" : ""} group hover:bg-black/5 mb-1 flex w-full justify-between items-center overflow-hidden whitespace-nowrap rounded-md p-2.5` +
+          `${isActive ? "bg-black/10 hover:!bg-black/10 dark:bg-[#ffffff08] dark:hover:!bg-[#ffffff08]" : ""} group dark:hover:bg--[#ffffff0f] hover:bg-black/5 mb-1 flex w-full justify-between items-center overflow-hidden whitespace-nowrap rounded-md p-2.5` +
           (linkClassName ?? "")
         }>
         <div className="flex items-center">
           {Icon && <Icon className="shrink-0 group-hover:!text-primary" />}
-          <span className="dark:group-hover:text-white-dark text-black ltr:pl-3 rtl:pr-3 dark:text-[#506690]">
+          <span className="text-black dark:text-[#506690] dark:group-hover:text-white-dark ltr:pl-3 rtl:pr-3">
             {text}
           </span>
         </div>
