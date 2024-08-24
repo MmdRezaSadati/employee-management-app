@@ -1,4 +1,5 @@
 import "@/assets/styles/globals.css";
+import MainProvider from "@/components/provider";
 import { TFCChildren } from "@/core/types";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
@@ -13,7 +14,9 @@ export const metadata: Metadata = {
 const RootLayout: TFCChildren = ({ children }) => {
   return (
     <html lang="en" dir="ltr">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <MainProvider>{children}</MainProvider>
+      </body>
     </html>
   );
 };
