@@ -4,6 +4,7 @@ import { TUser } from "@/components/pages/employees/table";
 import { Form, Formik } from "formik";
 import Image from "next/image";
 import { FC, useState } from "react";
+import AddCard from "./add-card";
 
 const EmployeeForm: FC<{ data?: TUser }> = ({ data }) => {
   const [cards, setCards] = useState(data?.cards ?? []);
@@ -77,7 +78,7 @@ const EmployeeForm: FC<{ data?: TUser }> = ({ data }) => {
             other users of the platform.
           </p>
         </div>
-        <div className="relative my-3 flex h-auto w-full grow flex-row flex-wrap gap-4 overflow-y-auto p-3">
+        <div className="relative my-3 flex h-auto w-full grow flex-row flex-wrap items-center justify-center gap-4 overflow-y-auto p-3">
           <CustomInput label="Name" name="name" />
           <CustomInput label="Role" name="role" />
           <CustomInput label="Team" name="team" />
@@ -85,6 +86,9 @@ const EmployeeForm: FC<{ data?: TUser }> = ({ data }) => {
           <CustomInput label="Age" name="age" />
           <CustomInput label="Email" name="email" />
           <CustomInput label="Caption" name="caption" as="textarea" />
+          <div className="w-72"></div>
+          <div className="w-72"></div>
+          <AddCard setCards={setCards} cards={cards} />
         </div>
         <div className="mt-4 flex h-auto w-full items-center justify-end gap-2 overflow-hidden rounded-b-2xl p-3 text-sm">
           <button className="inline-flex h-10 w-20 min-w-[5.00rem] cursor-pointer items-center justify-center overflow-hidden rounded-full border-2 border-solid border-zinc-700 px-4 text-center">

@@ -21,7 +21,7 @@ const CustomInput: TCustomInput = ({ label, component, as, ...props }) => {
           </label>
           <div className="inline-flex size-full items-center">
             <ComponentToRender
-              className="no-scroll size-full bg-transparent !outline-none"
+              className="no-scroll size-full py-2 bg-transparent !outline-none"
               placeholder={`Enter ${label}`}
               type="text"
               as={as}
