@@ -54,7 +54,7 @@ const TableTopContent = ({
     }
   }, []);
   return (
-    <div className="flex flex-col gap-4">
+    <div className="sticky left-0 top-0 flex flex-col gap-4">
       <div className="flex items-end justify-between gap-3">
         <Input
           isClearable

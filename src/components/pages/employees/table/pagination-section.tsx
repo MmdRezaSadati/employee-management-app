@@ -11,7 +11,7 @@ const PaginationSection: FC<{
   items: TUser[];
 }> = ({ selectedKeys, page, pages, setPage, hasSearchFilter, items }) => {
   return (
-    <div className="flex items-center justify-between p-2">
+    <div className="sticky bottom-0 left-0 flex items-center justify-between p-2">
       <Pagination
         showControls
         classNames={{

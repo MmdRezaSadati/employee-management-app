@@ -117,6 +117,7 @@ export default function App() {
         />
       }
       bottomContentPlacement="outside"
+      className="overflow-hidden overflow-x-auto"
       checkboxesProps={{
         classNames: {
           wrapper: "after:bg-foreground after:text-background text-background",
