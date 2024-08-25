@@ -1,4 +1,5 @@
 "use client";
+import { Badge } from "@/components/common";
 import IconMenu from "@/core/icons/icon-menu";
 import { toggleSidebar, TThemeSelector } from "@/stores/slices/theme";
 import React from "react";
@@ -10,12 +11,10 @@ const ToggleSidebar = () => {
     (state) => state.themeSlice.sideBar
   );
   return (
-    <button
-      type="button"
-      className="flex flex-none rounded-full bg-white-light/40 p-2 hover:bg-white-light/90 hover:text-primary dark:bg-dark/40 dark:text-[#d0d2d6] dark:hover:bg-dark/60 dark:hover:text-primary ltr:ml-2 rtl:mr-2"
+    <Badge
       onClick={() => dispatch(toggleSidebar(!sidebar))}>
       <IconMenu className="size-5" />
-    </button>
+    </Badge>
   );
 };
 

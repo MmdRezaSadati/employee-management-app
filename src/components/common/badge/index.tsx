@@ -9,8 +9,8 @@ const Badge: TFCPropsWithChildren<{ component?: ElementType } & any> = ({
   const ComponentToRender = component ?? "span";
   return (
     <ComponentToRender
-      className="block rounded-full bg-white-light/40 p-2 hover:bg-white-light/90 hover:text-primary dark:bg-dark/40 dark:hover:bg-dark/60"
-      {...props}>
+      {...props}
+      className={`block cursor-pointer rounded-full bg-white-light/40 p-2 hover:bg-white-light/90 hover:text-primary dark:bg-dark/40 dark:hover:bg-dark/60 ${props.className}`}>
       {children}
     </ComponentToRender>
   );
