@@ -26,7 +26,8 @@ const useRenderCell = () => {
     switch (columnKey) {
       case "name":
         return (
-          <Link href={`/profile/${user.id}`}>
+          <Link
+            href={`/profile/${user.id}`}>
             <User
               avatarProps={{ radius: "full", size: "sm", src: user.avatar }}
               classNames={{
