@@ -15,7 +15,7 @@ const Header = () => {
         />
         <ToggleSidebar />
       </div>
-      <div className="flex gap-2">
+      <div className="flex gap-4">
         <ThemeSwitcher />
         <Search />
       </div>

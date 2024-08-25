@@ -8,7 +8,7 @@ const PanelLayout: TFCChildren = ({ children }) => {
       <Sidebar />
       <div className="relative h-screen w-full lg:ltr:ml-64 lg:rtl:mr-64 ">
         <Header />
-        <main className="h-screen">{children}</main>
+        <main className="h-screen px-4 py-7">{children}</main>
       </div>
     </div>
   );
