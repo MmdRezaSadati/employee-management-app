@@ -17,7 +17,7 @@ import {
   SetStateAction,
   useCallback,
 } from "react";
-import { columns, employees, statusOptions } from "./data";
+import { columns, employees, statusOptions } from "@/core/constants/data";
 
 const TableTopContent = ({
   setFilterValue,

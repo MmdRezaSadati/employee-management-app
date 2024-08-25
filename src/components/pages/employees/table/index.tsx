@@ -11,7 +11,11 @@ import {
   TableRow,
 } from "@nextui-org/react";
 import { useMemo, useState } from "react";
-import { columns, employees, statusOptions } from "./data";
+import {
+  columns,
+  employees,
+  statusOptions,
+} from "@/core/constants/data";
 import PaginationSection from "./pagination-section";
 import TableTopContent from "./table-top-content";
 
