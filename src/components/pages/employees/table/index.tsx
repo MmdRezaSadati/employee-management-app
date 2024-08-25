@@ -11,11 +11,7 @@ import {
   TableRow,
 } from "@nextui-org/react";
 import { useMemo, useState } from "react";
-import {
-  columns,
-  employees,
-  statusOptions,
-} from "@/core/constants/data";
+import { columns, employees, statusOptions } from "@/core/constants/data";
 import PaginationSection from "./pagination-section";
 import TableTopContent from "./table-top-content";
 
@@ -23,7 +19,7 @@ const INITIAL_VISIBLE_COLUMNS = ["name", "role", "status", "actions"];
 
 export type TUser = (typeof employees)[0];
 
-export default function App() {
+const EmployeesTable = () => {
   const [filterValue, setFilterValue] = useState("");
   const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set([]));
   const [visibleColumns, setVisibleColumns] = useState<Selection>(
@@ -167,4 +163,5 @@ export default function App() {
       </TableBody>
     </Table>
   );
-}
+};
+export default EmployeesTable;
