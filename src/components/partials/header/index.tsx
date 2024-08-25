@@ -4,7 +4,7 @@ import { Search, ThemeSwitcher } from "@/components/common";
 
 const Header = () => {
   return (
-    <header className="sticky left-0 top-0 flex h-14 w-full items-center justify-between bg-white px-5 py-2.5 shadow-sm dark:bg-black">
+    <header className="sticky left-0 top-0 z-40 flex h-14 w-full items-center justify-between bg-white px-5 py-2.5 shadow-sm dark:bg-black">
       <div className="flex gap-3 lg:hidden">
         <Image
           src="/logo.png"
