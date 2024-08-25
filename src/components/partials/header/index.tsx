@@ -1,7 +1,6 @@
-import Search from "@/components/common/search";
-import ThemeSwitcher from "@/components/common/theme-switcher";
 import ToggleSidebar from "./toggle-sidebar";
 import Image from "next/image";
+import { Search, ThemeSwitcher } from "@/components/common";
 
 const Header = () => {
   return (
