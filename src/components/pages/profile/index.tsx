@@ -12,9 +12,9 @@ const Profile: FC<{ id: string }> = ({ id }) => {
   return (
     <div className="flex flex-col gap-3 md:flex-row">
       <ProfileCard data={data} />
-      <div className="flex w-full gap-2 flex-col">
+      <div className="flex w-full flex-col gap-2">
         <OverviewSection caption={data?.caption ?? ""} />
-        <CardOverview />
+        <CardOverview cards={data?.cards} />
       </div>
     </div>
   );

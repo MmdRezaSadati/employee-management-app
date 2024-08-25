@@ -25,6 +25,11 @@ const employees = [
     age: "29",
     avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
     email: "tony.reichert@example.com",
+    cards: [
+      { cardNumber: "1234567890123456", cardName: "Visa" },
+      { cardNumber: "1234567890123456", cardName: "Master card" },
+      { cardNumber: "1234567890123456", cardName: "Discover" },
+    ],
     caption:
       "A Web Developer creates and designs different websites for clients. They are responsible for their aesthetic as well as their function. Professionals in this field may also need to be able to ensure sites are compatible with multiple types of media. Web Developers need to have a firm understanding of programming and graphical design. Having a strong resume that emphasizes these attributes makes it significantly easier to get hired as a Web Developer.",
   },
@@ -37,6 +42,11 @@ const employees = [
     age: "25",
     avatar: "https://i.pravatar.cc/150?u=a042581f4e29026704d",
     email: "zoey.lang@example.com",
+    cards: [
+      { cardNumber: "1234567890123456", cardName: "Visa" },
+      { cardNumber: "1234567890123456", cardName: "Master card" },
+      { cardNumber: "1234567890123456", cardName: "Discover" },
+    ],
     caption:
       "A Web Developer creates and designs different websites for clients. They are responsible for their aesthetic as well as their function. Professionals in this field may also need to be able to ensure sites are compatible with multiple types of media. Web Developers need to have a firm understanding of programming and graphical design. Having a strong resume that emphasizes these attributes makes it significantly easier to get hired as a Web Developer.",
   },
@@ -49,6 +59,11 @@ const employees = [
     age: "22",
     avatar: "https://i.pravatar.cc/150?u=a04258114e29026702d",
     email: "jane.fisher@example.com",
+    cards: [
+      { cardNumber: "1234567890123456", cardName: "Visa" },
+      { cardNumber: "1234567890123456", cardName: "Master card" },
+      { cardNumber: "1234567890123456", cardName: "Discover" },
+    ],
     caption:
       "A Web Developer creates and designs different websites for clients. They are responsible for their aesthetic as well as their function. Professionals in this field may also need to be able to ensure sites are compatible with multiple types of media. Web Developers need to have a firm understanding of programming and graphical design. Having a strong resume that emphasizes these attributes makes it significantly easier to get hired as a Web Developer.",
   },
@@ -61,6 +76,11 @@ const employees = [
     age: "28",
     avatar: "https://i.pravatar.cc/150?u=a048581f4e29026701d",
     email: "william.howard@example.com",
+    cards: [
+      { cardNumber: "1234567890123456", cardName: "Visa" },
+      { cardNumber: "1234567890123456", cardName: "Master card" },
+      { cardNumber: "1234567890123456", cardName: "Discover" },
+    ],
     caption:
       "A Web Developer creates and designs different websites for clients. They are responsible for their aesthetic as well as their function. Professionals in this field may also need to be able to ensure sites are compatible with multiple types of media. Web Developers need to have a firm understanding of programming and graphical design. Having a strong resume that emphasizes these attributes makes it significantly easier to get hired as a Web Developer.",
   },
@@ -73,6 +93,11 @@ const employees = [
     age: "24",
     avatar: "https://i.pravatar.cc/150?u=a092581d4ef9026700d",
     email: "kristen.cooper@example.com",
+    cards: [
+      { cardNumber: "1234567890123456", cardName: "Visa" },
+      { cardNumber: "1234567890123456", cardName: "Master card" },
+      { cardNumber: "1234567890123456", cardName: "Discover" },
+    ],
     caption:
       "A Web Developer creates and designs different websites for clients. They are responsible for their aesthetic as well as their function. Professionals in this field may also need to be able to ensure sites are compatible with multiple types of media. Web Developers need to have a firm understanding of programming and graphical design. Having a strong resume that emphasizes these attributes makes it significantly easier to get hired as a Web Developer.",
   },
@@ -85,6 +110,11 @@ const employees = [
     avatar: "https://i.pravatar.cc/150?u=a042581f4e29026024d",
     email: "brian.kim@example.com",
     status: "active",
+    cards: [
+      { cardNumber: "1234567890123456", cardName: "Visa" },
+      { cardNumber: "1234567890123456", cardName: "Master card" },
+      { cardNumber: "1234567890123456", cardName: "Discover" },
+    ],
     caption:
       "A Web Developer creates and designs different websites for clients. They are responsible for their aesthetic as well as their function. Professionals in this field may also need to be able to ensure sites are compatible with multiple types of media. Web Developers need to have a firm understanding of programming and graphical design. Having a strong resume that emphasizes these attributes makes it significantly easier to get hired as a Web Developer.",
   },
@@ -97,6 +127,11 @@ const employees = [
     age: "27",
     avatar: "https://i.pravatar.cc/150?u=a042581f4e29027007d",
     email: "michael.hunt@example.com",
+    cards: [
+      { cardNumber: "1234567890123456", cardName: "Visa" },
+      { cardNumber: "1234567890123456", cardName: "Master card" },
+      { cardNumber: "1234567890123456", cardName: "Discover" },
+    ],
     caption:
       "A Web Developer creates and designs different websites for clients. They are responsible for their aesthetic as well as their function. Professionals in this field may also need to be able to ensure sites are compatible with multiple types of media. Web Developers need to have a firm understanding of programming and graphical design. Having a strong resume that emphasizes these attributes makes it significantly easier to get hired as a Web Developer.",
   },
@@ -109,6 +144,11 @@ const employees = [
     age: "31",
     avatar: "https://i.pravatar.cc/150?u=a042581f4e27027008d",
     email: "samantha.brooks@example.com",
+    cards: [
+      { cardNumber: "1234567890123456", cardName: "Visa" },
+      { cardNumber: "1234567890123456", cardName: "Master card" },
+      { cardNumber: "1234567890123456", cardName: "Discover" },
+    ],
     caption:
       "A Web Developer creates and designs different websites for clients. They are responsible for their aesthetic as well as their function. Professionals in this field may also need to be able to ensure sites are compatible with multiple types of media. Web Developers need to have a firm understanding of programming and graphical design. Having a strong resume that emphasizes these attributes makes it significantly easier to get hired as a Web Developer.",
   },
@@ -121,6 +161,11 @@ const employees = [
     age: "33",
     avatar: "https://i.pravatar.cc/150?img=4",
     email: "frank.harrison@example.com",
+    cards: [
+      { cardNumber: "1234567890123456", cardName: "Visa" },
+      { cardNumber: "1234567890123456", cardName: "Master card" },
+      { cardNumber: "1234567890123456", cardName: "Discover" },
+    ],
     caption:
       "A Web Developer creates and designs different websites for clients. They are responsible for their aesthetic as well as their function. Professionals in this field may also need to be able to ensure sites are compatible with multiple types of media. Web Developers need to have a firm understanding of programming and graphical design. Having a strong resume that emphasizes these attributes makes it significantly easier to get hired as a Web Developer.",
   },
@@ -133,6 +178,11 @@ const employees = [
     age: "35",
     avatar: "https://i.pravatar.cc/150?img=5",
     email: "emma.adams@example.com",
+    cards: [
+      { cardNumber: "1234567890123456", cardName: "Visa" },
+      { cardNumber: "1234567890123456", cardName: "Master card" },
+      { cardNumber: "1234567890123456", cardName: "Discover" },
+    ],
     caption:
       "A Web Developer creates and designs different websites for clients. They are responsible for their aesthetic as well as their function. Professionals in this field may also need to be able to ensure sites are compatible with multiple types of media. Web Developers need to have a firm understanding of programming and graphical design. Having a strong resume that emphasizes these attributes makes it significantly easier to get hired as a Web Developer.",
   },
@@ -145,6 +195,11 @@ const employees = [
     age: "22",
     avatar: "https://i.pravatar.cc/150?img=8",
     email: "brandon.stevens@example.com",
+    cards: [
+      { cardNumber: "1234567890123456", cardName: "Visa" },
+      { cardNumber: "1234567890123456", cardName: "Master card" },
+      { cardNumber: "1234567890123456", cardName: "Discover" },
+    ],
     caption:
       "A Web Developer creates and designs different websites for clients. They are responsible for their aesthetic as well as their function. Professionals in this field may also need to be able to ensure sites are compatible with multiple types of media. Web Developers need to have a firm understanding of programming and graphical design. Having a strong resume that emphasizes these attributes makes it significantly easier to get hired as a Web Developer.",
   },
@@ -157,6 +212,11 @@ const employees = [
     age: "28",
     avatar: "https://i.pravatar.cc/150?img=10",
     email: "megan.richards@example.com",
+    cards: [
+      { cardNumber: "1234567890123456", cardName: "Visa" },
+      { cardNumber: "1234567890123456", cardName: "Master card" },
+      { cardNumber: "1234567890123456", cardName: "Discover" },
+    ],
     caption:
       "A Web Developer creates and designs different websites for clients. They are responsible for their aesthetic as well as their function. Professionals in this field may also need to be able to ensure sites are compatible with multiple types of media. Web Developers need to have a firm understanding of programming and graphical design. Having a strong resume that emphasizes these attributes makes it significantly easier to get hired as a Web Developer.",
   },
@@ -169,6 +229,11 @@ const employees = [
     age: "37",
     avatar: "https://i.pravatar.cc/150?img=12",
     email: "oliver.scott@example.com",
+    cards: [
+      { cardNumber: "1234567890123456", cardName: "Visa" },
+      { cardNumber: "1234567890123456", cardName: "Master card" },
+      { cardNumber: "1234567890123456", cardName: "Discover" },
+    ],
     caption:
       "A Web Developer creates and designs different websites for clients. They are responsible for their aesthetic as well as their function. Professionals in this field may also need to be able to ensure sites are compatible with multiple types of media. Web Developers need to have a firm understanding of programming and graphical design. Having a strong resume that emphasizes these attributes makes it significantly easier to get hired as a Web Developer.",
   },
@@ -181,6 +246,11 @@ const employees = [
     age: "30",
     avatar: "https://i.pravatar.cc/150?img=16",
     email: "grace.allen@example.com",
+    cards: [
+      { cardNumber: "1234567890123456", cardName: "Visa" },
+      { cardNumber: "1234567890123456", cardName: "Master card" },
+      { cardNumber: "1234567890123456", cardName: "Discover" },
+    ],
     caption:
       "A Web Developer creates and designs different websites for clients. They are responsible for their aesthetic as well as their function. Professionals in this field may also need to be able to ensure sites are compatible with multiple types of media. Web Developers need to have a firm understanding of programming and graphical design. Having a strong resume that emphasizes these attributes makes it significantly easier to get hired as a Web Developer.",
   },
@@ -193,6 +263,11 @@ const employees = [
     age: "31",
     avatar: "https://i.pravatar.cc/150?img=15",
     email: "noah.carter@example.com",
+    cards: [
+      { cardNumber: "1234567890123456", cardName: "Visa" },
+      { cardNumber: "1234567890123456", cardName: "Master card" },
+      { cardNumber: "1234567890123456", cardName: "Discover" },
+    ],
     caption:
       "A Web Developer creates and designs different websites for clients. They are responsible for their aesthetic as well as their function. Professionals in this field may also need to be able to ensure sites are compatible with multiple types of media. Web Developers need to have a firm understanding of programming and graphical design. Having a strong resume that emphasizes these attributes makes it significantly easier to get hired as a Web Developer.",
   },
@@ -205,6 +280,11 @@ const employees = [
     age: "29",
     avatar: "https://i.pravatar.cc/150?img=20",
     email: "ava.perez@example.com",
+    cards: [
+      { cardNumber: "1234567890123456", cardName: "Visa" },
+      { cardNumber: "1234567890123456", cardName: "Master card" },
+      { cardNumber: "1234567890123456", cardName: "Discover" },
+    ],
     caption:
       "A Web Developer creates and designs different websites for clients. They are responsible for their aesthetic as well as their function. Professionals in this field may also need to be able to ensure sites are compatible with multiple types of media. Web Developers need to have a firm understanding of programming and graphical design. Having a strong resume that emphasizes these attributes makes it significantly easier to get hired as a Web Developer.",
   },
@@ -217,6 +297,11 @@ const employees = [
     age: "28",
     avatar: "https://i.pravatar.cc/150?img=33",
     email: "liam.johnson@example.com",
+    cards: [
+      { cardNumber: "1234567890123456", cardName: "Visa" },
+      { cardNumber: "1234567890123456", cardName: "Master card" },
+      { cardNumber: "1234567890123456", cardName: "Discover" },
+    ],
     caption:
       "A Web Developer creates and designs different websites for clients. They are responsible for their aesthetic as well as their function. Professionals in this field may also need to be able to ensure sites are compatible with multiple types of media. Web Developers need to have a firm understanding of programming and graphical design. Having a strong resume that emphasizes these attributes makes it significantly easier to get hired as a Web Developer.",
   },
@@ -229,6 +314,11 @@ const employees = [
     age: "27",
     avatar: "https://i.pravatar.cc/150?img=29",
     email: "sophia.taylor@example.com",
+    cards: [
+      { cardNumber: "1234567890123456", cardName: "Visa" },
+      { cardNumber: "1234567890123456", cardName: "Master card" },
+      { cardNumber: "1234567890123456", cardName: "Discover" },
+    ],
     caption:
       "A Web Developer creates and designs different websites for clients. They are responsible for their aesthetic as well as their function. Professionals in this field may also need to be able to ensure sites are compatible with multiple types of media. Web Developers need to have a firm understanding of programming and graphical design. Having a strong resume that emphasizes these attributes makes it significantly easier to get hired as a Web Developer.",
   },
@@ -241,6 +331,11 @@ const employees = [
     age: "32",
     avatar: "https://i.pravatar.cc/150?img=50",
     email: "lucas.harris@example.com",
+    cards: [
+      { cardNumber: "1234567890123456", cardName: "Visa" },
+      { cardNumber: "1234567890123456", cardName: "Master card" },
+      { cardNumber: "1234567890123456", cardName: "Discover" },
+    ],
     caption:
       "A Web Developer creates and designs different websites for clients. They are responsible for their aesthetic as well as their function. Professionals in this field may also need to be able to ensure sites are compatible with multiple types of media. Web Developers need to have a firm understanding of programming and graphical design. Having a strong resume that emphasizes these attributes makes it significantly easier to get hired as a Web Developer.",
   },
@@ -253,6 +348,11 @@ const employees = [
     age: "26",
     avatar: "https://i.pravatar.cc/150?img=45",
     email: "mia.robinson@example.com",
+    cards: [
+      { cardNumber: "1234567890123456", cardName: "Visa" },
+      { cardNumber: "1234567890123456", cardName: "Master card" },
+      { cardNumber: "1234567890123456", cardName: "Discover" },
+    ],
     caption:
       "A Web Developer creates and designs different websites for clients. They are responsible for their aesthetic as well as their function. Professionals in this field may also need to be able to ensure sites are compatible with multiple types of media. Web Developers need to have a firm understanding of programming and graphical design. Having a strong resume that emphasizes these attributes makes it significantly easier to get hired as a Web Developer.",
   },
