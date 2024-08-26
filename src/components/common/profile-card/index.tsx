@@ -9,11 +9,10 @@ import IconLocation from "@/core/icons/icon-location";
 import IconPhone from "@/core/icons/icon-phone";
 import IconRole from "@/core/icons/icon-role";
 import IconTwitter from "@/core/icons/icon-twitter";
-import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
-import ListItem from "./list-item";
 import ImageFallback from "../image-with-fallback";
+import ListItem from "./list-item";
 
 const ProfileCard: FC<{ data?: TUser }> = ({ data }) => {
   return (

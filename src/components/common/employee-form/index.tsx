@@ -3,9 +3,9 @@ import CustomInput from "@/components/common/input";
 import { TUser } from "@/components/pages/employees/table";
 import IconEditForm from "@/core/icons/icon-edit-form";
 import { Form, Formik } from "formik";
+import { CldImage } from "next-cloudinary";
 import { FC, useState } from "react";
 import ImageUploader from "../image-uploader";
-import ImageFallback from "../image-with-fallback";
 import AddCard from "./add-card";
 
 const EmployeeForm: FC<{ data?: TUser }> = ({ data }) => {
@@ -34,7 +34,7 @@ const EmployeeForm: FC<{ data?: TUser }> = ({ data }) => {
           <div className="flex gap-4 py-4">
             <div className="relative inline-flex text-white">
               <span className="flex size-14 items-center justify-center overflow-hidden rounded-full bg-zinc-700">
-                <ImageFallback
+                <CldImage
                   className="flex size-full  object-cover"
                   width={56}
                   height={56}
