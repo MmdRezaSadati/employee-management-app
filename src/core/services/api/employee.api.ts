@@ -29,3 +29,11 @@ export const deleteEmployee = async ({
     .delete(EMPLOYEE + `/${data.Id}`)
     .then((res) => res.data);
 };
+
+export const editEmployee = async ({
+  data,
+}: IRequestBody<IUser>): Promise<IUser> => {
+  return await axiosInterceptorInstance
+    .put(EMPLOYEE + `/${data.id}`, data)
+    .then((res) => res.data);
+};

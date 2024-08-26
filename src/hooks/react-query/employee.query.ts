@@ -3,6 +3,7 @@ import { EMPLOYEE } from "@/core/constants/api.constants";
 import {
   addEmployee,
   deleteEmployee,
+  editEmployee,
   getEmployeeById,
   getEmployees,
 } from "@/core/services/api/employee.api";
@@ -19,6 +20,7 @@ import {
   UseQueryResult,
 } from "@tanstack/react-query";
 import { AxiosError } from "axios";
+import { redirect } from "next/navigation";
 import { toast } from "react-toastify";
 
 export const useAddEmployee = (): UseMutationResult<
@@ -60,6 +62,20 @@ export const useDeleteEmployee = (): UseMutationResult<
     onSuccess: () => {
       toast.success("delete the Employee is success!");
       queryClient.refetchQueries([EMPLOYEE, "list"]);
+    },
+  });
+};
+
+export const useEditEmployee = (): UseMutationResult<
+  IUser,
+  AxiosError<IError>,
+  IRequestBody<IUser>
+> => {
+  return useMutation({
+    mutationFn: (body) => editEmployee(body),
+    onSuccess: () => {
+      toast.success("Update the Employee is success!");
+      redirect("/test");
     },
   });
 };
