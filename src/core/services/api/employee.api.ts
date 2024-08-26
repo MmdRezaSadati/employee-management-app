@@ -14,6 +14,13 @@ export const addEmployee = async ({
 export const getEmployees: () => Promise<IUser[]> = async () => {
   return await axiosInterceptorInstance.get(EMPLOYEE).then((res) => res.data);
 };
+export const getEmployeeById: (
+  prop: IRequestBody<IIdParams>
+) => Promise<IUser> = async ({ data }) => {
+  return await axiosInterceptorInstance
+    .get(EMPLOYEE + `/${data.Id}`)
+    .then((res) => res.data);
+};
 
 export const deleteEmployee = async ({
   data,

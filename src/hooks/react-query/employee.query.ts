@@ -3,6 +3,7 @@ import { EMPLOYEE } from "@/core/constants/api.constants";
 import {
   addEmployee,
   deleteEmployee,
+  getEmployeeById,
   getEmployees,
 } from "@/core/services/api/employee.api";
 import {
@@ -36,6 +37,14 @@ export const useGetEmployees = (): UseQueryResult<IUser[]> => {
   });
 };
 
+export const useGetEmployeeById = (
+  props: IRequestBody<IIdParams>
+): UseQueryResult<IUser> => {
+  return useQuery({
+    queryKey: [EMPLOYEE, "edit"],
+    queryFn: () => getEmployeeById(props),
+  });
+};
 export const useDeleteEmployee = (): UseMutationResult<
   IUser,
   AxiosError<IError>,
