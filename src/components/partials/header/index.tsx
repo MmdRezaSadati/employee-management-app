@@ -1,10 +1,8 @@
-"use client";
 import { Search, ThemeSwitcher } from "@/components/common";
 import Image from "next/image";
 import ToggleSidebar from "./toggle-sidebar";
 
 const Header = () => {
-  console.log(typeof document);
   return (
     <header className="sticky left-0 top-0 z-40 flex h-14 w-full items-center justify-between bg-white px-5 py-2.5 shadow-sm dark:bg-black">
       <div className="flex gap-1 sm:gap-3 lg:hidden">

@@ -1,4 +1,3 @@
-
 export interface IError {
   statusCode?: number;
   code?: string;
@@ -22,5 +21,5 @@ export interface IIdParams {
 }
 
 export interface IIdBody {
-  Id: number;
+  Id: string;
 }

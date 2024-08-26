@@ -7,13 +7,16 @@ import {
   Dropdown,
   DropdownItem,
   DropdownMenu,
-  DropdownTrigger
+  DropdownTrigger,
 } from "@nextui-org/react";
 import { CldImage } from "next-cloudinary";
 import Link from "next/link";
-import { Key, useCallback } from "react";
+import { Dispatch, Key, SetStateAction, useCallback } from "react";
 
-const useRenderCell = () => {
+const useRenderCell = (
+  onOpen: () => void,
+  setId: Dispatch<SetStateAction<string | undefined>>
+) => {
   const statusColorMap: Record<string, ChipProps["color"]> = {
     active: "success",
     paused: "danger",
@@ -22,7 +25,6 @@ const useRenderCell = () => {
   type UserWithoutCards = Omit<IUser, "cards">;
   const renderCell = useCallback((user: UserWithoutCards, columnKey: Key) => {
     const cellValue = user[columnKey as keyof UserWithoutCards];
-
     switch (columnKey) {
       case "name":
         return (
@@ -35,7 +37,9 @@ const useRenderCell = () => {
               alt={user.name}
             />
             <div className="text-tiny text-default-500">
-              <p className="text-sm text-slate-800">{user.name}</p>
+              <p className="text-sm text-slate-900 dark:text-slate-300 ">
+                {user.name}
+              </p>
               {user.email}
             </div>
           </Link>
@@ -75,7 +79,13 @@ const useRenderCell = () => {
                 <DropdownItem as={Link} href={`/edit/${user.id}`}>
                   Edit
                 </DropdownItem>
-                <DropdownItem>Delete</DropdownItem>
+                <DropdownItem
+                  onClick={() => {
+                    onOpen();
+                    setId(String(user.id));
+                  }}>
+                  Delete
+                </DropdownItem>
               </DropdownMenu>
             </Dropdown>
           </div>

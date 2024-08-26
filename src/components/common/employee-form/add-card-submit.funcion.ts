@@ -21,7 +21,6 @@ const onAddCardSubmit = (
   } else {
     invalidCard = { ...invalidCard, cardNumber: false };
   }
-  console.log(card.cardNumber.length);
   if (card.cardNumber.length < 16 || card.cardNumber.length > 16) {
     invalidCard = {
       ...invalidCard,
