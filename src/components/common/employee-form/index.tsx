@@ -1,6 +1,6 @@
 "use client";
 import CustomInput from "@/components/common/input";
-import { TUser } from "@/components/pages/employees/table";
+import { IUser } from "@/components/pages/employees/table";
 import IconEditForm from "@/core/icons/icon-edit-form";
 import { Form, Formik } from "formik";
 import { CldImage } from "next-cloudinary";
@@ -9,7 +9,7 @@ import ImageUploader from "../image-uploader";
 import AddCard from "./add-card";
 import employeeFormValidation from "@/core/validations/employee-form.validation";
 
-const EmployeeForm: FC<{ data?: TUser; onSubmit: (data: any) => void }> = ({
+const EmployeeForm: FC<{ data?: IUser; onSubmit: (data: any) => void }> = ({
   data,
   onSubmit,
 }) => {
@@ -26,13 +26,14 @@ const EmployeeForm: FC<{ data?: TUser; onSubmit: (data: any) => void }> = ({
     email: "",
     caption: "",
     phoneNumber: "",
+    birthDay: "",
   };
   return (
     <Formik
       initialValues={initialValues}
       enableReinitialize
       validationSchema={employeeFormValidation}
-      onSubmit={(value) => onSubmit(value)}
+      onSubmit={(value) => onSubmit({ ...value, cards, avatar: publicId })}
       className="relative flex h-auto flex-col overflow-hidden rounded-2xl p-2 text-gray-200">
       <Form>
         <div className="flex w-full flex-col items-start justify-start rounded-t-2xl px-4 pt-4">
@@ -71,7 +72,7 @@ const EmployeeForm: FC<{ data?: TUser; onSubmit: (data: any) => void }> = ({
             other users of the platform.
           </p>
         </div>
-        <div className="relative my-3 flex h-auto w-full grow flex-row flex-wrap items-center justify-center gap-4 overflow-y-auto p-3">
+        <div className="relative my-3 flex h-auto w-full grow flex-row flex-wrap items-center justify-center gap-4 overflow-y-auto p-3 lg:justify-normal">
           <CustomInput label="Name" name="name" />
           <CustomInput label="Role" name="role" />
           <CustomInput label="Team" name="team" />
@@ -79,9 +80,14 @@ const EmployeeForm: FC<{ data?: TUser; onSubmit: (data: any) => void }> = ({
           <CustomInput label="Age" name="age" />
           <CustomInput label="Email" name="email" />
           <CustomInput label="Phone Number" name="phoneNumber" />
-          <CustomInput label="Caption" name="caption" as="textarea" />
-          {/* <div className="w-72"></div> */}
-          <div className="w-72"></div>
+          <CustomInput label="BirthDay" name="birthDay" type="date" />
+          <div className="w-72 md:hidden"></div>
+          <CustomInput
+            label="Caption"
+            name="caption"
+            as="textarea"
+            width={"w-[592px]"}
+          />
           <AddCard setCards={setCards} cards={cards} />
         </div>
         <div className="mt-4 flex h-auto w-full items-center justify-end gap-2 overflow-hidden rounded-b-2xl p-3 text-sm">
