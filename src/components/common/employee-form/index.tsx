@@ -90,7 +90,7 @@ const EmployeeForm: FC<{ data?: IUser; onSubmit: (data: any) => void }> = ({
           />
           <AddCard setCards={setCards} cards={cards} />
         </div>
-        <div className="mt-4 flex h-auto w-full items-center justify-end gap-2 overflow-hidden rounded-b-2xl p-3 text-sm">
+        <div className="mt-4 flex h-auto w-full items-center justify-end gap-2 overflow-hidden whitespace-nowrap rounded-b-2xl p-3 text-sm">
           <button className="inline-flex h-10 w-20 min-w-[5.00rem] cursor-pointer items-center justify-center overflow-hidden rounded-full border-2 border-solid border-zinc-700 px-4 text-center">
             Cancel
           </button>

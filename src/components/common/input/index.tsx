@@ -18,7 +18,7 @@ const CustomInput: TCustomInput = ({
   const ComponentToRender = component ?? Field;
   return (
     <div
-      className={`relative mt-[calc(0.875rem_+_10px)] flex ${width ?? "w-72"}  flex-col justify-end text-sm`}>
+      className={`relative mt-[calc(0.875rem_+_10px)] flex ${width ?? "w-72"} mb-5 flex-col justify-end text-sm`}>
       <div className="flex h-full flex-col">
         <div
           className={`relative inline-flex ${as === "textarea" ? "h-28" : "h-10"} min-h-[2.50rem] w-full cursor-text items-center gap-3 rounded-xl bg-zinc-100 px-3 dark:bg-zinc-800`}>
@@ -36,7 +36,7 @@ const CustomInput: TCustomInput = ({
           </div>
         </div>
       </div>
-      <p className="px-2 text-red-700">
+      <p className="absolute -bottom-5 px-2 text-red-700">
         <ErrorMessage name={props.name ?? ""} />
       </p>
     </div>
