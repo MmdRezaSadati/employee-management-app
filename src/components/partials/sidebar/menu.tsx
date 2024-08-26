@@ -9,7 +9,6 @@ const Menu = () => {
     <ul className="my-4">
       <SidebarLink href="/" text="main" Icon={IconMenuDashboard} />
       <SidebarLink href="/addEmployee" text="Add Employee" Icon={IconMenuUsers} />
-      <SidebarLink href="/users" text="Users" Icon={IconMenuUsers} />
     </ul>
   );
 };
