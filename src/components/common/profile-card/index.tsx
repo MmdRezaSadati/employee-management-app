@@ -13,6 +13,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 import ListItem from "./list-item";
+import ImageFallback from "../image-with-fallback";
 
 const ProfileCard: FC<{ data?: TUser }> = ({ data }) => {
   return (
@@ -32,7 +33,7 @@ const ProfileCard: FC<{ data?: TUser }> = ({ data }) => {
       </div>
       <div className="mb-5 w-full">
         <div className="flex h-36 w-full flex-col items-center justify-center">
-          <Image
+          <ImageFallback
             width={96}
             height={96}
             className="mb-5 size-24 max-w-full text-clip rounded-full object-cover"
