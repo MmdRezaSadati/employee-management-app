@@ -1,10 +1,10 @@
 "use client";
 import EmployeeForm from "@/components/common/employee-form";
 import React from "react";
-import { TUser } from "../employees/table";
+import { IUser } from "../employees/table";
 
 const AddEmployee = () => {
-  const onSubmit = (value: TUser) => {};
+  const onSubmit = (value: IUser) => {};
   return <EmployeeForm onSubmit={onSubmit} />;
 };
 

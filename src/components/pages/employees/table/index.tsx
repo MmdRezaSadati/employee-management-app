@@ -17,7 +17,23 @@ import TableTopContent from "./table-top-content";
 
 const INITIAL_VISIBLE_COLUMNS = ["name", "role", "status", "actions"];
 
-export type TUser = (typeof employees)[0];
+export interface IUser  {
+  id: number;
+  name: string;
+  role: string;
+  team: string;
+  status: string;
+  age: string;
+  avatar: string;
+  email: string;
+  cards: {
+      cardNumber: string;
+      cardName: string;
+  }[];
+  phoneNumber: string;
+  birthDay: string;
+  caption: string;
+};
 
 const EmployeesTable = () => {
   const [filterValue, setFilterValue] = useState("");
@@ -73,9 +89,9 @@ const EmployeesTable = () => {
   }, [page, filteredItems, rowsPerPage]);
 
   const sortedItems = useMemo(() => {
-    return [...items].sort((a: TUser, b: TUser) => {
-      const first = a[sortDescriptor.column as keyof TUser] as number;
-      const second = b[sortDescriptor.column as keyof TUser] as number;
+    return [...items].sort((a: IUser, b: IUser) => {
+      const first = a[sortDescriptor.column as keyof IUser] as number;
+      const second = b[sortDescriptor.column as keyof IUser] as number;
       const cmp = first < second ? -1 : first > second ? 1 : 0;
 
       return sortDescriptor.direction === "descending" ? -cmp : cmp;
