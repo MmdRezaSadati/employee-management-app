@@ -32,7 +32,7 @@ const AddCard: FC<{
   return (
     <div className="w-full">
       <div className="relative flex flex-col items-center gap-2 sm:flex-row">
-        <div className="relative w-80">
+        <div className="relative w-64">
           {card.cardName && (
             <CardSelect
               label={card.cardName}
@@ -72,7 +72,7 @@ const AddCard: FC<{
           type="number"
           label="Bank Card number"
           placeholder="Enter the bank card number"
-          className="w-80"
+          className="w-64"
           size="lg"
           value={card.cardNumber}
           onChange={(e) => {

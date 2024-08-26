@@ -1,6 +1,6 @@
 import { Pagination, Selection } from "@nextui-org/react";
 import { Dispatch, FC, memo, SetStateAction } from "react";
-import { TUser } from ".";
+import { IUser } from ".";
 
 const PaginationSection: FC<{
   selectedKeys: Selection;
@@ -8,7 +8,7 @@ const PaginationSection: FC<{
   pages: number;
   page: number;
   setPage: Dispatch<SetStateAction<number>>;
-  items: TUser[];
+  items: IUser[];
 }> = ({ selectedKeys, page, pages, setPage, hasSearchFilter, items }) => {
   return (
     <div className="sticky bottom-0 left-0 flex items-center justify-between p-2">

@@ -1,4 +1,4 @@
-import { TUser } from "@/components/pages/employees/table";
+import { IUser } from "@/components/pages/employees/table";
 import SocialItem from "@/components/pages/profile/social-item";
 import IconDatePicker from "@/core/icons/icon-date-picker";
 import IconDribble from "@/core/icons/icon-dribble";
@@ -14,7 +14,7 @@ import { FC } from "react";
 import ImageFallback from "../image-with-fallback";
 import ListItem from "./list-item";
 
-const ProfileCard: FC<{ data?: TUser }> = ({ data }) => {
+const ProfileCard: FC<{ data?: IUser }> = ({ data }) => {
   return (
     <div className="relative box-border w-full rounded-md bg-white p-5 text-sm leading-5 text-gray-900 dark:bg-black-light/5 dark:text-gray-200 md:w-72">
       <div className="mb-5 flex h-10 w-full items-center justify-between">

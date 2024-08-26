@@ -1,4 +1,4 @@
-import { TUser } from "@/components/pages/employees/table";
+import { IUser } from "@/components/pages/employees/table";
 import IconVerticalDots from "@/core/icons/icon-vertical-dots";
 import {
   Button,
@@ -19,7 +19,7 @@ const useRenderCell = () => {
     paused: "danger",
     vacation: "warning",
   };
-  type UserWithoutCards = Omit<TUser, "cards">;
+  type UserWithoutCards = Omit<IUser, "cards">;
   const renderCell = useCallback((user: UserWithoutCards, columnKey: Key) => {
     const cellValue = user[columnKey as keyof UserWithoutCards];
 

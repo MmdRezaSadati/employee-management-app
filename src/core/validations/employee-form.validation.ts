@@ -1,22 +1,25 @@
 import * as yup from "yup";
 
 const employeeFormValidation = yup.object().shape({
-  gmail: yup
+    email: yup
     .string()
-    .email("  ایمیل را به درستی وارد کنید")
-    .required("Mail is required")
-    .typeError("ایمیل را به درستی وارد کنید")
-    .required("این فیلد الزامیست!"),
+    .email("Enter the email correctly")
+    .required("Email is required")
+    .typeError("Enter the email correctly")
+    .required("Email is required"),
 
   phoneNumber: yup
     .number()
-    .min(9000000000, "شماره موبایل باید 11 رقم باشد")
-    .max(9999999999, "شماره موبایل نباید بیشتر از 11 رقم باشد")
-    .required("این فیلد الزامیست!"),
-  name: yup.string().required("این فیلد الزامیست!"),
-  Address: yup.string().required("این فیلد الزامیست!"),
-  caption: yup.string().required("این فیلد الزامیست!"),
-  birthDay: yup.date().required("این فیلد الزامیست!"),
-  gender: yup.boolean().required("لطفا نوع جنسیت را انتخاب کنید"),
+    .min(9000000000, "Mobile number must be 11 digits")
+    .max(9999999999, "Mobile number should not be more than 11 digits")
+    .required("Phone Number is required"),
+  name: yup.string().required("Name is required"),
+  address: yup.string().required("Address is required"),
+  caption: yup.string().required("Caption is required"),
+  team: yup.string().required("Team is required"),
+  status: yup.string().required("Status is required"),
+  age: yup.string().required("Age is required"),
+  role: yup.string().required("Role is required"),
+  birthDay: yup.date().required("birthDay is required"),
 });
 export default employeeFormValidation;
