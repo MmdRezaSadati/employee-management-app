@@ -15,7 +15,7 @@ const CustomInput: TCustomInput = ({ label, component, as, ...props }) => {
       className={`relative mt-[calc(0.875rem_+_10px)] flex w-72 flex-col justify-end text-sm`}>
       <div className="flex h-full flex-col">
         <div
-          className={`relative inline-flex ${as === "textarea" ? "h-28" : "h-10"} min-h-[2.50rem] w-full cursor-text items-center gap-3 rounded-xl bg-zinc-200 px-3 dark:bg-zinc-800`}>
+          className={`relative inline-flex ${as === "textarea" ? "h-28" : "h-10"} min-h-[2.50rem] w-full cursor-text items-center gap-3 rounded-xl bg-zinc-100 px-3 dark:bg-zinc-800`}>
           <label className="absolute -top-6 left-0 z-20 max-w-full overflow-hidden text-ellipsis pr-2">
             {label}
           </label>

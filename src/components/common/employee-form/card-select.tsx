@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { FC, MouseEventHandler } from "react";
+import ImageFallback from "../image-with-fallback";
 interface ICardSelect {
   label: string;
   className?: string;
@@ -10,7 +10,7 @@ const CardSelect: FC<ICardSelect> = ({ label, className, onClick }) => {
     <div
       className={`${className ?? ""} flex items-center gap-3`}
       onClick={onClick}>
-      <Image
+      <ImageFallback
         className="size-10 max-w-full text-clip"
         width={40}
         height={40}

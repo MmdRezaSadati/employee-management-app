@@ -1,8 +1,6 @@
+"use client";
 import { CldUploadWidget } from "next-cloudinary";
 import React, { FC } from "react";
-interface CloudinaryResult {
-  public_id: string;
-}
 const ImageUploader: FC<{ setPublicId: any }> = ({ setPublicId }) => {
   return (
     <CldUploadWidget
@@ -29,10 +27,10 @@ const ImageUploader: FC<{ setPublicId: any }> = ({ setPublicId }) => {
           },
         },
       }}
-      onUpload={(result) => {
-        if (result.event !== "success") return;
-        const info = result.info as CloudinaryResult;
-        setPublicId(info.public_id);
+      onQueuesEnd={(result: any) => {
+        if (result.info) {
+          setPublicId(result?.info?.files[0]?.uploadInfo.public_id);
+        }
       }}>
       {({ open }) => (
         <button

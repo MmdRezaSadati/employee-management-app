@@ -1,3 +1,4 @@
+import { columns, employees, statusOptions } from "@/core/constants/data";
 import IconPlus from "@/core/icons/icon-plus";
 import IconChevronDown from "@/core/icons/icon-plus copy";
 import IconSearchTable from "@/core/icons/icon-search-table";
@@ -10,6 +11,7 @@ import {
   DropdownTrigger,
   Input,
 } from "@nextui-org/react";
+import Link from "next/link";
 import {
   ChangeEvent,
   Dispatch,
@@ -17,7 +19,6 @@ import {
   SetStateAction,
   useCallback,
 } from "react";
-import { columns, employees, statusOptions } from "@/core/constants/data";
 
 const TableTopContent = ({
   setFilterValue,
@@ -118,6 +119,8 @@ const TableTopContent = ({
             </DropdownMenu>
           </Dropdown>
           <Button
+            as={Link}
+            href="/addEmployee"
             className="bg-foreground text-background"
             endContent={<IconPlus />}
             size="sm">

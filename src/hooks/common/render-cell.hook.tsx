@@ -67,8 +67,12 @@ const useRenderCell = () => {
                 </Button>
               </DropdownTrigger>
               <DropdownMenu>
-                <DropdownItem href={`/profile/${user.id}`}>View</DropdownItem>
-                <DropdownItem href={`/edit/${user.id}`}>Edit</DropdownItem>
+                <DropdownItem as={Link} href={`/profile/${user.id}`}>
+                  View
+                </DropdownItem>
+                <DropdownItem as={Link} href={`/edit/${user.id}`}>
+                  Edit
+                </DropdownItem>
                 <DropdownItem>Delete</DropdownItem>
               </DropdownMenu>
             </Dropdown>
