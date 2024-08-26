@@ -60,9 +60,9 @@ const employees = [
     avatar: "https://i.pravatar.cc/150?u=a04258114e29026702d",
     email: "jane.fisher@example.com",
     cards: [
-      { cardNumber: "1234567890123456", cardName: "Visa" },
+      { cardNumber: "1234567290123456", cardName: "Visa" },
       { cardNumber: "1234567890123456", cardName: "Master card" },
-      { cardNumber: "1234567890123456", cardName: "Discover" },
+      { cardNumber: "1234567990123456", cardName: "Discover" },
     ],
     caption:
       "A Web Developer creates and designs different websites for clients. They are responsible for their aesthetic as well as their function. Professionals in this field may also need to be able to ensure sites are compatible with multiple types of media. Web Developers need to have a firm understanding of programming and graphical design. Having a strong resume that emphasizes these attributes makes it significantly easier to get hired as a Web Developer.",

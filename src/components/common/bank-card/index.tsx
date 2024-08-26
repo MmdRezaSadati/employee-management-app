@@ -1,15 +1,23 @@
 import Image from "next/image";
 import Link from "next/link";
-import React, { FC } from "react";
+import { FC } from "react";
 interface IBankCardProps {
   cardName: string;
   cardNumber: string;
   itsPrimary?: boolean;
+  isNumberShow?: boolean;
+  className?: string;
 }
-const BankCard: FC<IBankCardProps> = ({ cardName, cardNumber, itsPrimary }) => {
+const BankCard: FC<IBankCardProps> = ({
+  cardName,
+  cardNumber,
+  itsPrimary,
+  isNumberShow,
+  className,
+}) => {
   return (
     <Link
-      className="flex h-16 w-full cursor-pointer items-center gap-3 rounded-md border-2 border-solid border-slate-200 p-2 dark:border-slate-600"
+      className={`${className ?? ""} flex h-16 w-full cursor-pointer items-center gap-3 rounded-md border-2 border-solid border-slate-200 p-2 dark:border-slate-600`}
       href="#">
       <div
         className="flex size-12 items-center justify-center rounded-md"
@@ -33,7 +41,9 @@ const BankCard: FC<IBankCardProps> = ({ cardName, cardNumber, itsPrimary }) => {
           {cardName}
         </h5>
         <p className="h-5 w-52 leading-5 text-slate-500">
-          XXXX XXXX XXXX {cardNumber.slice(12, 16)}
+          {isNumberShow
+            ? `${cardNumber.slice(0, 4)} ${cardNumber.slice(4, 8)} ${cardNumber.slice(8, 12)} ${cardNumber.slice(12, 16)}`
+            : "XXXX XXXX XXXX" + cardNumber.slice(12, 16)}
         </p>
       </div>
 

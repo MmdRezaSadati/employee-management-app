@@ -19,15 +19,14 @@ const useRenderCell = () => {
     paused: "danger",
     vacation: "warning",
   };
-
-  const renderCell = useCallback((user: TUser, columnKey: Key) => {
-    const cellValue = user[columnKey as keyof TUser];
+  type UserWithoutCards = Omit<TUser, "cards">;
+  const renderCell = useCallback((user: UserWithoutCards, columnKey: Key) => {
+    const cellValue = user[columnKey as keyof UserWithoutCards];
 
     switch (columnKey) {
       case "name":
         return (
-          <Link
-            href={`/profile/${user.id}`}>
+          <Link href={`/profile/${user.id}`}>
             <User
               avatarProps={{ radius: "full", size: "sm", src: user.avatar }}
               classNames={{
