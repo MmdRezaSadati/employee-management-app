@@ -9,9 +9,9 @@ import IconLocation from "@/core/icons/icon-location";
 import IconPhone from "@/core/icons/icon-phone";
 import IconRole from "@/core/icons/icon-role";
 import IconTwitter from "@/core/icons/icon-twitter";
+import { CldImage } from "next-cloudinary";
 import Link from "next/link";
 import { FC } from "react";
-import ImageFallback from "../image-with-fallback";
 import ListItem from "./list-item";
 
 const ProfileCard: FC<{ data?: IUser }> = ({ data }) => {
@@ -32,7 +32,7 @@ const ProfileCard: FC<{ data?: IUser }> = ({ data }) => {
       </div>
       <div className="mb-5 w-full">
         <div className="flex h-36 w-full flex-col items-center justify-center">
-          <ImageFallback
+          <CldImage
             width={96}
             height={96}
             className="mb-5 size-24 max-w-full text-clip rounded-full object-cover"
@@ -53,7 +53,7 @@ const ProfileCard: FC<{ data?: IUser }> = ({ data }) => {
           <ListItem title={data?.age ?? ""}>
             <IconDatePicker className="size-5 overflow-hidden" />
           </ListItem>
-          <ListItem title={data?.email ?? ""}>
+          <ListItem title={data?.team ?? ""}>
             <IconLocation className="size-5 overflow-hidden" />
           </ListItem>
           <ListItem
@@ -67,7 +67,7 @@ const ProfileCard: FC<{ data?: IUser }> = ({ data }) => {
               <IconEmail className="size-5 overflow-hidden" />
             </button>
           </ListItem>
-          <ListItem title={data?.email ?? ""}>
+          <ListItem title={data?.phoneNumber ?? ""}>
             <IconPhone className="size-5 overflow-hidden" />
           </ListItem>
         </ul>

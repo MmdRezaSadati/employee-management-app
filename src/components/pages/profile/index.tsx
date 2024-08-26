@@ -1,14 +1,12 @@
+'use client'
 import ProfileCard from "@/components/common/profile-card";
-import { employees } from "@/core/constants/data";
+import { useGetEmployeeById } from "@/hooks/react-query/employee.query";
 import { FC } from "react";
-import OverviewSection from "./overview";
-import { IUser } from "../employees/table";
 import CardOverview from "./card-overview";
+import OverviewSection from "./overview";
 
 const Profile: FC<{ id: string }> = ({ id }) => {
-  const data: IUser | undefined = employees.find(
-    (item) => String(item.id) === id
-  );
+  const { data } = useGetEmployeeById({ data: { Id: id } });
   return (
     <div className="flex flex-col gap-3 md:flex-row">
       <ProfileCard data={data} />
