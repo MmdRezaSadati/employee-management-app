@@ -28,6 +28,7 @@ const AddCard: FC<{
     cardName: false,
     cardNumber: false,
   });
+
   return (
     <div className="w-full">
       <div className="relative flex flex-col items-center gap-2 sm:flex-row">
@@ -51,7 +52,9 @@ const AddCard: FC<{
             onChange={(e) =>
               setCard((prev) => ({ ...prev, cardName: e.target.value }))
             }
-            value={card.cardName}
+            value={
+              card.cardName && card.cardName !== "" ? card.cardName : undefined
+            }
             className="max-w-xs">
             {(card) => (
               <SelectItem key={card.key}>
