@@ -14,7 +14,7 @@ const EmployeeForm: FC<{ data?: IUser; onSubmit: (data: any) => void }> = ({
   onSubmit,
 }) => {
   const [cards, setCards] = useState(data?.cards ?? []);
-  const [publicId, setPublicId] = useState(data?.avatar ?? "");
+  const [publicId, setPublicId] = useState<undefined | string>();
   const initialValues = data ?? {
     id: "",
     name: "",
@@ -45,7 +45,7 @@ const EmployeeForm: FC<{ data?: IUser; onSubmit: (data: any) => void }> = ({
                   className="flex size-full  object-cover"
                   width={56}
                   height={56}
-                  src={publicId}
+                  src={publicId ?? data?.avatar ?? ""}
                   alt={data?.name ?? ""}
                 />
               </span>

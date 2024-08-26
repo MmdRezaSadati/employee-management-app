@@ -1,4 +1,4 @@
-import { columns, employees, statusOptions } from "@/core/constants/data";
+import { columns, statusOptions } from "@/core/constants/data";
 import IconPlus from "@/core/icons/icon-plus";
 import IconChevronDown from "@/core/icons/icon-plus copy";
 import IconSearchTable from "@/core/icons/icon-search-table";
@@ -15,21 +15,13 @@ import Link from "next/link";
 import {
   ChangeEvent,
   Dispatch,
+  FC,
   memo,
   SetStateAction,
   useCallback,
 } from "react";
-
-const TableTopContent = ({
-  setFilterValue,
-  filterValue,
-  setStatusFilter,
-  statusFilter,
-  setVisibleColumns,
-  visibleColumns,
-  setPage,
-  setRowsPerPage,
-}: {
+import { IUser } from ".";
+interface ITableTopContent {
   filterValue: string;
   setFilterValue: (value: SetStateAction<string>) => void;
   setRowsPerPage: (value: SetStateAction<number>) => void;
@@ -38,6 +30,18 @@ const TableTopContent = ({
   setStatusFilter: Dispatch<SetStateAction<any>>;
   visibleColumns: any;
   setVisibleColumns: Dispatch<SetStateAction<any>>;
+  data: IUser[];
+}
+const TableTopContent: FC<ITableTopContent> = ({
+  setFilterValue,
+  filterValue,
+  setStatusFilter,
+  statusFilter,
+  setVisibleColumns,
+  visibleColumns,
+  setPage,
+  setRowsPerPage,
+  data,
 }) => {
   const onRowsPerPageChange = useCallback(
     (e: ChangeEvent<HTMLSelectElement>) => {
@@ -130,7 +134,7 @@ const TableTopContent = ({
       </div>
       <div className="flex items-center justify-between">
         <span className="text-small text-default-400">
-          Total {employees.length} employees
+          Total {data.length} employees
         </span>
         <label className="flex items-center text-small text-default-400">
           Rows per page:

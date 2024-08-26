@@ -8,12 +8,15 @@ import {
   DropdownItem,
   DropdownMenu,
   DropdownTrigger,
-  User,
 } from "@nextui-org/react";
+import { CldImage } from "next-cloudinary";
 import Link from "next/link";
-import { Key, useCallback } from "react";
+import { Dispatch, Key, SetStateAction, useCallback } from "react";
 
-const useRenderCell = () => {
+const useRenderCell = (
+  onOpen: () => void,
+  setId: Dispatch<SetStateAction<string | undefined>>
+) => {
   const statusColorMap: Record<string, ChipProps["color"]> = {
     active: "success",
     paused: "danger",
@@ -22,20 +25,23 @@ const useRenderCell = () => {
   type UserWithoutCards = Omit<IUser, "cards">;
   const renderCell = useCallback((user: UserWithoutCards, columnKey: Key) => {
     const cellValue = user[columnKey as keyof UserWithoutCards];
-
     switch (columnKey) {
       case "name":
         return (
-          <Link href={`/profile/${user.id}`}>
-            <User
-              avatarProps={{ radius: "full", size: "sm", src: user.avatar }}
-              classNames={{
-                description: "text-default-500",
-              }}
-              description={user.email}
-              name={cellValue}>
+          <Link href={`/profile/${user.id}`} className="flex gap-3">
+            <CldImage
+              src={user.avatar}
+              width={32}
+              height={32}
+              className="!h-8 rounded-full"
+              alt={user.name}
+            />
+            <div className="text-tiny text-default-500">
+              <p className="text-sm text-slate-900 dark:text-slate-300 ">
+                {user.name}
+              </p>
               {user.email}
-            </User>
+            </div>
           </Link>
         );
       case "role":
@@ -73,7 +79,13 @@ const useRenderCell = () => {
                 <DropdownItem as={Link} href={`/edit/${user.id}`}>
                   Edit
                 </DropdownItem>
-                <DropdownItem>Delete</DropdownItem>
+                <DropdownItem
+                  onClick={() => {
+                    onOpen();
+                    setId(String(user.id));
+                  }}>
+                  Delete
+                </DropdownItem>
               </DropdownMenu>
             </Dropdown>
           </div>

@@ -1,13 +1,19 @@
-import { employees } from "@/core/constants/data";
+"use client";
+import EmployeeForm from "@/components/common/employee-form";
+import {
+  useEditEmployee,
+  useGetEmployeeById,
+} from "@/hooks/react-query/employee.query";
 import { FC } from "react";
 import { IUser } from "../employees/table";
-import EditEmployee from "./EditEmployee";
 
-const Edit: FC<{ id?: string }> = ({ id }) => {
-  const data: IUser | undefined = employees.find(
-    (item) => String(item.id) === id
-  );
-  return <EditEmployee data={data} />;
+const Edit: FC<{ id: string }> = ({ id }) => {
+  const { data } = useGetEmployeeById({ data: { Id: id } });
+  const { mutate } = useEditEmployee();
+  const onSubmit = (value: IUser) => {
+    mutate({ data: value });
+  };
+  return <EmployeeForm data={data} onSubmit={onSubmit} />;
 };
 
 export default Edit;
