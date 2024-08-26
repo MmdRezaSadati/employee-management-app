@@ -1,13 +1,13 @@
+import Image from "next/image";
 import Link from "next/link";
 import Handler from "./handler";
 import Menu from "./menu";
-import ImageFallback from "@/components/common/image-with-fallback";
 
 const Sidebar = () => {
   return (
     <Handler>
       <Link href={"/"} className="flex items-center gap-2 py-3  text-2xl">
-        <ImageFallback
+        <Image
           src="/logo.png"
           alt="next svg"
           width={32}

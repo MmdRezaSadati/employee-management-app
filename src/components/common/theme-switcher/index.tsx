@@ -9,9 +9,10 @@ import {
 } from "@/core/services/local-storage/storage.services";
 
 const ThemeSwitcher = () => {
-  const themeStorage = document && getItem("theme");
+  const themeStorage = getItem("theme");
   const [lightMode, setLightMode] = useState(themeStorage === "light");
-  const htmlTag = document.querySelector("html");
+  const htmlTag =
+    typeof document !== "undefined" && document?.querySelector("html");
   const changeTheme = (value: boolean) => {
     setLightMode(value);
     if (htmlTag) {

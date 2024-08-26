@@ -1,23 +1,37 @@
-const setItem = (key, value) => {
-  localStorage.setItem(key, JSON.stringify(value));
+const setItem = (key: string, value: any) => {
+  if (typeof window !== "undefined") {
+    window.localStorage.setItem(key, JSON.stringify(value));
+  }
 };
-const getItem = (key) => {
-  if (localStorage.getItem(key)) return JSON.parse(localStorage.getItem(key));
+const getItem = (key: string) => {
+  if (typeof window !== "undefined") {
+    if (window.localStorage.getItem(key))
+      return JSON.parse(window.localStorage.getItem(key)!);
+  }
   return false;
 };
-const getItemGeneric = (key) => {
-  if (localStorage.getItem(key)) return localStorage.getItem(key);
+const getItemGeneric = (key: string) => {
+  if (typeof window !== "undefined") {
+    if (window.localStorage.getItem(key))
+      return window.localStorage.getItem(key);
+  }
   return false;
 };
-const setItemGeneric = (key, value) => {
-  localStorage.setItem(key, value);
+const setItemGeneric = (key: string, value: any) => {
+  if (typeof window !== "undefined") {
+    window.localStorage.setItem(key, value);
+  }
 };
-const removeItem = (key) => {
-  if (getItem(key) === false) return false;
-  localStorage.removeItem(key);
+const removeItem = (key: string) => {
+  if (typeof window !== "undefined") {
+    if (getItem(key) === false) return false;
+    window.localStorage.removeItem(key);
+  }
 };
 const clearStorage = () => {
-  localStorage.clear();
+  if (typeof window !== "undefined") {
+    window.localStorage.clear();
+  }
 };
 
 export {

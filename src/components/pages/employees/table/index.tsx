@@ -10,14 +10,14 @@ import {
   TableHeader,
   TableRow,
 } from "@nextui-org/react";
-import { useMemo, useState } from "react";
-import { columns, employees, statusOptions } from "@/core/constants/data";
+import { FC, useMemo, useState } from "react";
+import { columns, statusOptions } from "@/core/constants/data";
 import PaginationSection from "./pagination-section";
 import TableTopContent from "./table-top-content";
 
 const INITIAL_VISIBLE_COLUMNS = ["name", "role", "status", "actions"];
 
-export interface IUser  {
+export interface IUser {
   id: number;
   name: string;
   role: string;
@@ -27,15 +27,19 @@ export interface IUser  {
   avatar: string;
   email: string;
   cards: {
-      cardNumber: string;
-      cardName: string;
+    cardNumber: string;
+    cardName: string;
   }[];
   phoneNumber: string;
   birthDay: string;
   caption: string;
-};
+}
 
-const EmployeesTable = () => {
+const EmployeesTable: FC<{ isLoading?: boolean; data: IUser[] }> = ({
+  isLoading,
+  data,
+}) => {
+  console.log('data',data);
   const [filterValue, setFilterValue] = useState("");
   const [selectedKeys, setSelectedKeys] = useState<Selection>(new Set([]));
   const [visibleColumns, setVisibleColumns] = useState<Selection>(
@@ -49,7 +53,7 @@ const EmployeesTable = () => {
   });
   const [page, setPage] = useState(1);
   const { renderCell } = useRenderCell();
-  const pages = Math.ceil(employees.length / rowsPerPage);
+  const pages = Math.ceil(data.length / rowsPerPage);
 
   const hasSearchFilter = Boolean(filterValue);
 
@@ -62,7 +66,7 @@ const EmployeesTable = () => {
   }, [visibleColumns]);
 
   const filteredItems = useMemo(() => {
-    let filteredEmployees = [...employees];
+    let filteredEmployees = [...data];
 
     if (hasSearchFilter) {
       filteredEmployees = filteredEmployees.filter((user) =>
@@ -79,7 +83,7 @@ const EmployeesTable = () => {
     }
 
     return filteredEmployees;
-  }, [employees, filterValue, statusFilter]);
+  }, [data, filterValue, statusFilter]);
 
   const items = useMemo(() => {
     const start = (page - 1) * rowsPerPage;
@@ -97,6 +101,7 @@ const EmployeesTable = () => {
       return sortDescriptor.direction === "descending" ? -cmp : cmp;
     });
   }, [sortDescriptor, items]);
+  const loadingState = isLoading || data?.length === 0 ? "loading" : "idle";
 
   const classNames = useMemo(
     () => ({
@@ -145,6 +150,7 @@ const EmployeesTable = () => {
       sortDescriptor={sortDescriptor}
       topContent={
         <TableTopContent
+          data={data}
           filterValue={filterValue}
           setFilterValue={setFilterValue}
           setRowsPerPage={setRowsPerPage}
@@ -168,7 +174,10 @@ const EmployeesTable = () => {
           </TableColumn>
         )}
       </TableHeader>
-      <TableBody emptyContent={"No employees found"} items={sortedItems}>
+      <TableBody
+        emptyContent={"No data found"}
+        loadingState={loadingState}
+        items={sortedItems}>
         {(item) => (
           <TableRow key={item.id}>
             {(columnKey) => (
