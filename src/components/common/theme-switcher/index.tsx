@@ -1,43 +1,29 @@
 "use client";
-import IconSun from "@/core/icons/icon-sun";
-import React, { useEffect, useState } from "react";
-import Badge from "../badge";
 import IconMoon from "@/core/icons/icon-moon";
-import {
-  getItem,
-  setItem,
-} from "@/core/services/local-storage/storage.services";
+import IconSun from "@/core/icons/icon-sun";
+import { getItem } from "@/core/services/local-storage/storage.services";
+import changeTheme from "@/core/utils/change-theme.utils";
+import { useEffect, useState } from "react";
+import Badge from "../badge";
 
 const ThemeSwitcher = () => {
   const themeStorage = getItem("theme");
   const [lightMode, setLightMode] = useState(themeStorage === "light");
-  const htmlTag =
-    typeof document !== "undefined" && document?.querySelector("html");
-  const changeTheme = (value: boolean) => {
-    setLightMode(value);
-    if (htmlTag) {
-      if (!value) {
-        htmlTag.className = "dark";
-        setItem("theme", "dark");
-      } else {
-        setItem("theme", "light");
-        htmlTag.className = "";
-      }
-    }
-  };
   useEffect(() => {
     const themeStorage = getItem("theme");
-    themeStorage === "light" ? changeTheme(true) : changeTheme(false);
+    themeStorage === "light"
+      ? changeTheme(true, setLightMode)
+      : changeTheme(false, setLightMode);
   }, []);
 
   return (
     <>
       {lightMode ? (
-        <Badge onClick={() => changeTheme(false)}>
+        <Badge onClick={() => changeTheme(false, setLightMode)}>
           <IconSun />
         </Badge>
       ) : (
-        <Badge onClick={() => changeTheme(true)}>
+        <Badge onClick={() => changeTheme(true, setLightMode)}>
           <IconMoon />
         </Badge>
       )}

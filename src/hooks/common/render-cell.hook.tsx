@@ -7,9 +7,9 @@ import {
   Dropdown,
   DropdownItem,
   DropdownMenu,
-  DropdownTrigger,
-  User,
+  DropdownTrigger
 } from "@nextui-org/react";
+import { CldImage } from "next-cloudinary";
 import Link from "next/link";
 import { Key, useCallback } from "react";
 
@@ -26,16 +26,18 @@ const useRenderCell = () => {
     switch (columnKey) {
       case "name":
         return (
-          <Link href={`/profile/${user.id}`}>
-            <User
-              avatarProps={{ radius: "full", size: "sm", src: user.avatar }}
-              classNames={{
-                description: "text-default-500",
-              }}
-              description={user.email}
-              name={cellValue}>
+          <Link href={`/profile/${user.id}`} className="flex gap-3">
+            <CldImage
+              src={user.avatar}
+              width={32}
+              height={32}
+              className="!h-8 rounded-full"
+              alt={user.name}
+            />
+            <div className="text-tiny text-default-500">
+              <p className="text-sm text-slate-800">{user.name}</p>
               {user.email}
-            </User>
+            </div>
           </Link>
         );
       case "role":
