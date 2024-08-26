@@ -5,7 +5,7 @@ import { Search, ThemeSwitcher } from "@/components/common";
 const Header = () => {
   return (
     <header className="sticky left-0 top-0 z-40 flex h-14 w-full items-center justify-between bg-white px-5 py-2.5 shadow-sm dark:bg-black">
-      <div className="flex gap-3 lg:hidden">
+      <div className="flex gap-1 sm:gap-3 lg:hidden">
         <Image
           src="/logo.png"
           alt="next svg"
@@ -15,7 +15,7 @@ const Header = () => {
         />
         <ToggleSidebar />
       </div>
-      <div className="flex gap-4">
+      <div className="flex gap-1 sm:gap-4">
         <ThemeSwitcher />
         <Search />
       </div>

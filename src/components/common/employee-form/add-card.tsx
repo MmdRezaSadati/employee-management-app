@@ -2,12 +2,17 @@
 import cardNames from "@/core/constants/card-names";
 import IconXCircle from "@/core/icons/icon-x-circle";
 import { Button, Input, Select, SelectItem } from "@nextui-org/react";
-import Image from "next/image";
 import { Dispatch, FC, SetStateAction, useState } from "react";
 import BankCard from "../bank-card";
-interface IBankCard {
+import CardSelect from "./card-select";
+import onAddCardSubmit from "./add-card-submit.funcion";
+export interface IBankCard {
   cardNumber: string;
   cardName: string;
+}
+export interface IInvalidCard {
+  cardName: boolean;
+  cardNumber: boolean | string;
 }
 const AddCard: FC<{
   cards: IBankCard[];
@@ -18,66 +23,21 @@ const AddCard: FC<{
     cardName: "",
     cardNumber: "",
   });
-  const [invalidCard, setInvalidCard] = useState<{
-    cardName: boolean;
-    cardNumber: boolean | string;
-  }>({
+
+  const [invalidCard, setInvalidCard] = useState<IInvalidCard>({
     cardName: false,
     cardNumber: false,
   });
-  const onAddCardSumit = () => {
-    let invalidCard: {
-      cardName: boolean;
-      cardNumber: boolean | string;
-    } = {
-      cardName: false,
-      cardNumber: false,
-    };
-    if (card.cardName === "") {
-      invalidCard = { ...invalidCard, cardName: true };
-    } else {
-      invalidCard = { ...invalidCard, cardName: false };
-    }
-    if (card.cardNumber === "") {
-      invalidCard = { ...invalidCard, cardNumber: true };
-    } else {
-      invalidCard = { ...invalidCard, cardNumber: false };
-    }
-    console.log(card.cardNumber.length);
-    if (card.cardNumber.length < 16 || card.cardNumber.length > 16) {
-      invalidCard = {
-        ...invalidCard,
-        cardNumber: "Bank card number must be 16 digits",
-      };
-    } else {
-      invalidCard = { ...invalidCard, cardNumber: false };
-    }
-    if (!invalidCard.cardNumber && !invalidCard.cardName) {
-      setCards((prev) => [...prev, card]);
-      setCard({ cardName: "", cardNumber: "" });
-    }
-    setInvalidCard(invalidCard);
-  };
   return (
     <div className="w-full">
-      <div className="relative flex items-center gap-2">
+      <div className="relative flex flex-col items-center gap-2 sm:flex-row">
         <div className="relative w-80">
-          {card.cardName && card.cardName !== " " && (
-            <div
+          {card.cardName && (
+            <CardSelect
+              label={card.cardName}
               onClick={() => setIsOpen(!isOpen)}
-              className="absolute left-2.5 top-6 z-10 flex w-full cursor-pointer items-center gap-3">
-              <Image
-                className="size-10 max-w-full text-clip"
-                width={40}
-                height={40}
-                alt={card.cardName}
-                src={`/cards/${card.cardName.toLocaleLowerCase()}.png`}
-                style={{
-                  overflowClipMargin: "content-box",
-                }}
-              />
-              {card.cardName}
-            </div>
+              className="absolute left-2.5 top-6 z-10 w-full cursor-pointer"
+            />
           )}
           <Select
             items={cardNames.map((item) => ({ key: item, label: item }))}
@@ -95,19 +55,7 @@ const AddCard: FC<{
             className="max-w-xs">
             {(card) => (
               <SelectItem key={card.key}>
-                <div className="flex items-center gap-3">
-                  <Image
-                    className="size-10 max-w-full text-clip"
-                    width={40}
-                    height={40}
-                    alt={card.label}
-                    src={`/cards/${card.label.toLocaleLowerCase()}.png`}
-                    style={{
-                      overflowClipMargin: "content-box",
-                    }}
-                  />
-                  {card.label}
-                </div>
+                <CardSelect label={card.label} />
               </SelectItem>
             )}
           </Select>
@@ -124,15 +72,23 @@ const AddCard: FC<{
           className="w-80"
           size="lg"
           value={card.cardNumber}
-          onChange={(e) =>
-            setCard((prev) => ({ ...prev, cardNumber: e.target.value }))
-          }
+          onChange={(e) => {
+            const value = e.target.value;
+            setCard((prev) => ({ ...prev, cardNumber: value }));
+            if (value.length < 16 || value.length > 16) {
+              return false;
+            } else {
+              setInvalidCard({ ...invalidCard, cardNumber: false });
+            }
+          }}
           isInvalid={Boolean(invalidCard.cardNumber)}
         />
         <Button
           size="lg"
           color="primary"
-          onClick={onAddCardSumit}
+          onClick={() =>
+            onAddCardSubmit(setInvalidCard, setCard, setCards, card)
+          }
           className="mb-2">
           Add card
         </Button>
@@ -147,10 +103,7 @@ const AddCard: FC<{
               onClick={() => {
                 setCards(
                   cards.filter((card) => {
-                    return (
-                      card.cardNumber !== item.cardNumber &&
-                      card.cardName !== item.cardName
-                    );
+                    return card.cardNumber !== item.cardNumber;
                   })
                 );
               }}
