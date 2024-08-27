@@ -1,36 +1,125 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# Employee Management App Comprehensive Documentation
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+1. [Introduction](#introduction)
+2. [Package Configuration](#package-configuration)
+   - [Basic Information](#basic-information)
+   - [Scripts](#scripts)
+   - [Dependencies](#dependencies)
+   - [Development Dependencies](#development-dependencies)
+3. [Folder Structure](#folder-structure)
+   - [Folder Descriptions](#folder-descriptions)
+4. [Conclusion](#conclusion)
+
+## Introduction
+
+The Employee Management App is a web application built with Next.js aimed at efficiently managing employee data. This document provides a comprehensive overview of its configuration, dependencies, and folder structure to facilitate understanding and development.
+
+## Package Configuration
+
+### Basic Information
+
+- **Name**: `employee-management-app`
+- **Version**: `0.1.0`
+
+### Scripts
+
+The following scripts are accessible via npm to manage the application:
+
+- **dev**: This script starts the Next.js development server.
+  ```bash
+  npm run dev
+  ```
+
+- **build**: Prepares the application for production deployment by creating an optimized build.
+  ```bash
+  npm run build
+  ```
+
+- **start**: Launches the application in production mode.
+  ```bash
+  npm start
+  ```
+
+- **lint**: Runs a linter to check the project for code quality and style issues.
+  ```bash
+  npm run lint
+  ```
+
+### Dependencies
+
+The application relies on several essential packages, including:
+
+- `@nextui-org/react`: Provides React components for Next.js applications.
+- `@reduxjs/toolkit`: Simplifies Global State management using Redux.
+- `@tanstack/react-query`: A powerful library for managing server state and caching.
+- `axios`: A promise-based HTTP client for making requests to external APIs.
+- `formik`: A library that simplifies form handling in React.
+- `framer-motion`: A library for creating animations in React applications.
+- `react-toastify`: Allows easy and customizable notifications.
+- `yup`: A JavaScript schema builder for value parsing and validation.
+
+### Development Dependencies
+
+For development purposes, several tools facilitate code quality and maintainability:
+
+- `eslint`: A tool for identifying and fixing problems in JavaScript code.
+- `eslint-config-next`: ESLint configuration specifically for Next.js applications.
+- `prettier`: A code formatter for maintaining consistent code style.
+- `tailwindcss`: A utility-first CSS framework for rapid styling.
+- `typescript`: Provides type definitions to the JavaScript codebase, enhancing type safety.
+
+## Folder Structure
+
+```
+- public/
+- src/
+  - app/
+  - components/
+    - common/
+    - layouts/
+    - pages/
+    - partials/
+    - provider/
+  - core/
+    - configs/
+    - constants/
+    - fonts/
+    - hooks/
+    - services/
+    - stores/
+    - types/
+    - utils/
+    - validations/
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Folder Descriptions
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- **public/**: Contains static assets that can be served to users directly, such as images, icons, and fonts.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+- **src/**: The primary source directory for application code.
+  - **app/**: Holds the main application logic, including routing and global state management.
+  
+  - **components/**: Contains all React components utilized throughout the application.
+    - **common/**: Reusable components shared across different parts of the app.
+    - **layouts/**: Defines the structural layouts for different pages.
+    - **pages/**: Individual page components of the application, each representing a route.
+    - **partials/**: Smaller, reusable components used within layouts.
+    - **provider/**: Providers for managing state and handling data fetching.
+  
+  - **core/**: This folder contains essential functionalities and utilities.
+    - **configs/**: Configuration files such as settings.
+    - **constants/**: Constant values shared throughout the application.
+    - **fonts/**: Custom font files used in the application.
+    - **hooks/**: Custom React hooks for encapsulating reusable logic.
+    - **services/**: API service functions for data access.
+    - **stores/**: Redux state management configurations.
+    - **types/**: TypeScript type definitions to provide type safety.
+    - **utils/**: Utility functions for common tasks across the application.
+    - **validations/**: Schema and functions for validating form data.
 
-## Learn More
+## Conclusion
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This comprehensive documentation outlines the configuration, scripts, essential dependencies, and folder structure of the Employee Management App. By understanding this structure, developers can efficiently navigate the codebase and contribute to the project effectively. Continuous enhancements and maintenance will further enable the application to serve user needs and business goals effectively.
