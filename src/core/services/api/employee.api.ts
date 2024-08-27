@@ -1,4 +1,4 @@
-import { IUser } from "@/components/pages/employees/table";
+import { IUser } from "@/components/common/employee-table";
 import { IIdParams, IRequestBody } from "@/core/types/common/api.interface";
 import axiosInterceptorInstance from "../axios/interceptor/interceptor.axios";
 import { EMPLOYEE } from "@/core/constants/api.constants";

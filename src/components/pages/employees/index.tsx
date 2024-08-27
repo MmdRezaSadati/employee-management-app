@@ -1,10 +1,6 @@
-"use client";
-import { BreadCrumbs } from "@/components/common";
-import EmployeesTable from "./table";
-import { useGetEmployees } from "@/hooks/react-query/employee.query";
+import { BreadCrumbs, EmployeesTable } from "@/components/common";
 
 const Employees = () => {
-  const { data } = useGetEmployees();
   return (
     <div>
       <div className="flex justify-between">
@@ -17,7 +13,7 @@ const Employees = () => {
         />
       </div>
       <div className="mt-7 overflow-hidden rounded-lg bg-black-light/30 px-4 py-5 dark:bg-black-light/5">
-        <EmployeesTable data={data ?? []} />
+        <EmployeesTable />
       </div>
     </div>
   );

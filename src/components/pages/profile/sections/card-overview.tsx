@@ -1,4 +1,4 @@
-import BankCard from "@/components/common/bank-card";
+import { BankCard } from "@/components/common";
 import React, { FC } from "react";
 interface ICardOverviewProps {
   cards?: {

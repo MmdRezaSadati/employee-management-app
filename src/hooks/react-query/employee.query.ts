@@ -1,4 +1,4 @@
-import { IUser } from "@/components/pages/employees/table";
+import { IUser } from "@/components/common/employee-table";
 import { EMPLOYEE } from "@/core/constants/api.constants";
 import {
   addEmployee,

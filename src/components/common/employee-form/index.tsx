@@ -1,6 +1,6 @@
 "use client";
 import CustomInput from "@/components/common/input";
-import { IUser } from "@/components/pages/employees/table";
+import { IUser } from "@/components/common/employee-table";
 import IconEditForm from "@/core/icons/icon-edit-form";
 import { Form, Formik } from "formik";
 import { CldImage } from "next-cloudinary";

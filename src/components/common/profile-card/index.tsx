@@ -1,5 +1,4 @@
-import { IUser } from "@/components/pages/employees/table";
-import SocialItem from "@/components/pages/profile/social-item";
+import { IUser } from "@/components/common/employee-table";
 import IconDatePicker from "@/core/icons/icon-date-picker";
 import IconDribble from "@/core/icons/icon-dribble";
 import IconEdit from "@/core/icons/icon-edit";
@@ -13,6 +12,7 @@ import { CldImage } from "next-cloudinary";
 import Link from "next/link";
 import { FC } from "react";
 import ListItem from "./list-item";
+import SocialItem from "../social-item";
 
 const ProfileCard: FC<{ data?: IUser }> = ({ data }) => {
   return (

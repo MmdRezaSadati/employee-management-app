@@ -3,9 +3,9 @@ import cardNames from "@/core/constants/card-names";
 import IconXCircle from "@/core/icons/icon-x-circle";
 import { Button, Input, Select, SelectItem } from "@nextui-org/react";
 import { Dispatch, FC, SetStateAction, useState } from "react";
-import BankCard from "../bank-card";
 import CardSelect from "./card-select";
 import onAddCardSubmit from "./add-card-submit.funcion";
+import BankCard from "../bank-card";
 export interface IBankCard {
   cardNumber: string;
   cardName: string;

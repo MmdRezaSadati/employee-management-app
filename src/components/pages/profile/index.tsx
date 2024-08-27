@@ -1,9 +1,10 @@
-'use client'
-import ProfileCard from "@/components/common/profile-card";
+"use client";
+ /// this component will be rendered on server by using tanstack query Hydration Boundary
+
 import { useGetEmployeeById } from "@/hooks/react-query/employee.query";
 import { FC } from "react";
-import CardOverview from "./card-overview";
-import OverviewSection from "./overview";
+import { OverviewSection, CardOverview } from "./sections";
+import { ProfileCard } from "@/components/common";
 
 const Profile: FC<{ id: string }> = ({ id }) => {
   const { data } = useGetEmployeeById({ data: { Id: id } });

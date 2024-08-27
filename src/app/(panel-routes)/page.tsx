@@ -1,4 +1,4 @@
-import Hydrate from "@/components/common/hydrate";
+import { Hydrate } from "@/components/common";
 import Employees from "@/components/pages/employees";
 import { EMPLOYEE } from "@/core/constants/api.constants";
 import { getEmployees } from "@/core/services/api/employee.api";

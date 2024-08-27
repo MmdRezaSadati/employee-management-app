@@ -1,9 +1,9 @@
 "use client";
-import EmployeeForm from "@/components/common/employee-form";
 import React from "react";
-import { IUser } from "../employees/table";
 import { useAddEmployee } from "@/hooks/react-query/employee.query";
 import { toast } from "react-toastify";
+import { EmployeeForm } from "@/components/common";
+import { IUser } from "@/components/common/employee-table";
 
 const AddEmployee = () => {
   const { isPending, mutateAsync } = useAddEmployee();

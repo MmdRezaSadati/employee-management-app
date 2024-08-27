@@ -1,4 +1,4 @@
-import { IUser } from "@/components/pages/employees/table";
+import { IUser } from "@/components/common/employee-table";
 
 const columns = [
   { name: "ID", uid: "id", sortable: true },
