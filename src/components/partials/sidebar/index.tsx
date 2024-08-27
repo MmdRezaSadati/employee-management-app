@@ -14,7 +14,7 @@ const Sidebar = () => {
           height={28}
           className="!h-7 !w-auto"
         />
-        <h2>EMPLOYEE</h2>
+        <h2>Realtyna</h2>
       </Link>
       <Menu />
     </Handler>

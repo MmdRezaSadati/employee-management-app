@@ -16,6 +16,7 @@ const ProfilePage: TFCParamsId = async ({ params: { id } }) => {
   return (
     <Hydrate state={dehydrate(queryClient)}>
       <Profile id={id} />
+      
     </Hydrate>
   );
 };
