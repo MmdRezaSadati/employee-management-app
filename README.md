@@ -1,5 +1,5 @@
 
-# Employee Management App Comprehensive Documentation
+# Employee Management App Comprehensive Documentation 📋
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@
 
 ## Introduction
 
-The Employee Management App is a web application built with Next.js aimed at efficiently managing employee data. This document provides a comprehensive overview of its configuration, dependencies, and folder structure to facilitate understanding and development.
+The Employee Management App is a web application built with Next.js aimed at efficiently managing employee data. This document provides a comprehensive overview of its configuration, dependencies, and folder structure to facilitate understanding and development. 🚀
 
 ## Package Configuration
 
@@ -97,7 +97,7 @@ For development purposes, several tools facilitate code quality and maintainabil
 
 ### Folder Descriptions
 
-- **public/**: Contains static assets that can be served to users directly, such as images, icons, and fonts.
+- **public/**: Contains static assets that can be served to users directly, such as images, icons, and fonts. 🖼️
 
 - **src/**: The primary source directory for application code.
   - **app/**: Holds the main application logic, including routing and global state management.
@@ -118,8 +118,14 @@ For development purposes, several tools facilitate code quality and maintainabil
     - **stores/**: Redux state management configurations.
     - **types/**: TypeScript type definitions to provide type safety.
     - **utils/**: Utility functions for common tasks across the application.
-    - **validations/**: Schema and functions for validating form data.
+    - **validations/**: Schema and functions for validating form data. ✅
+
+## Deployment on Vercel
+
+The Employee Management App is deployed on Vercel, providing a seamless hosting solution for Next.js applications. You can access the live application at the following link:
+
+[Employee Management App on Vercel](https://employee-management-app-six.vercel.app/) 🌐
 
 ## Conclusion
 
-This comprehensive documentation outlines the configuration, scripts, essential dependencies, and folder structure of the Employee Management App. By understanding this structure, developers can efficiently navigate the codebase and contribute to the project effectively. Continuous enhancements and maintenance will further enable the application to serve user needs and business goals effectively.
+This comprehensive documentation outlines the configuration, scripts, essential dependencies, folder structure, and deployment details of the Employee Management App. By understanding this structure, developers can efficiently navigate the codebase and contribute to the project effectively. Continuous enhancements and maintenance will further enable the application to serve user needs and business goals effectively. 💼
