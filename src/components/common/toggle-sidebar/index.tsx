@@ -1,7 +1,7 @@
 "use client";
 import { Badge } from "@/components/common";
 import IconMenu from "@/core/icons/icon-menu";
-import { toggleSidebar, TThemeSelector } from "@/stores/slices/theme";
+import { toggleSidebar, TThemeSelector } from "@/core/stores/slices/theme";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -11,8 +11,7 @@ const ToggleSidebar = () => {
     (state) => state.themeSlice.sideBar
   );
   return (
-    <Badge
-      onClick={() => dispatch(toggleSidebar(!sidebar))}>
+    <Badge onClick={() => dispatch(toggleSidebar(!sidebar))}>
       <IconMenu className="size-5" />
     </Badge>
   );

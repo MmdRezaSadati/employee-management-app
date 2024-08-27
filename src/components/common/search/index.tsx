@@ -1,7 +1,7 @@
 "use client";
 import IconSearch from "@/core/icons/icon-search";
 import IconXCircle from "@/core/icons/icon-x-circle";
-import { onSearchChange, TSearchSelector } from "@/stores/slices/search";
+import { onSearchChange, TSearchSelector } from "@/core/stores/slices/search";
 import { useDispatch, useSelector } from "react-redux";
 
 const Search = () => {

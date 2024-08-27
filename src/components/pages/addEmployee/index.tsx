@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { useAddEmployee } from "@/hooks/react-query/employee.query";
+import { useAddEmployee } from "@/core/hooks/react-query/employee.query";
 import { Id, toast } from "react-toastify";
 import { EmployeeForm } from "@/components/common";
 import { IUser } from "@/components/common/employee-table";

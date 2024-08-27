@@ -1,6 +1,6 @@
 "use client";
 import { TFCChildren } from "@/core/types";
-import store from "@/stores";
+import store from "@/core/stores";
 import { NextUIProvider } from "@nextui-org/react";
 import { Provider as ReduxProvider } from "react-redux";
 

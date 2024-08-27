@@ -6,8 +6,8 @@ import renderCell from "@/core/utils/render-cell.utils";
 import {
   useDeleteEmployee,
   useGetEmployees,
-} from "@/hooks/react-query/employee.query";
-import { TSearchSelector } from "@/stores/slices/search";
+} from "@/core/hooks/react-query/employee.query";
+import { TSearchSelector } from "@/core/stores/slices/search";
 import {
   Button,
   Modal,

@@ -1,7 +1,7 @@
 "use client";
- /// this component will be rendered on server by using tanstack query Hydration Boundary
+/// this component will be rendered on server by using tanstack query Hydration Boundary
 
-import { useGetEmployeeById } from "@/hooks/react-query/employee.query";
+import { useGetEmployeeById } from "@/core/hooks/react-query/employee.query";
 import { FC } from "react";
 import { OverviewSection, CardOverview } from "./sections";
 import { ProfileCard } from "@/components/common";

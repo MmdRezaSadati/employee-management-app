@@ -1,6 +1,6 @@
 "use client";
 import { TFCChildren } from "@/core/types";
-import { toggleSidebar, TThemeSelector } from "@/stores/slices/theme";
+import { toggleSidebar, TThemeSelector } from "@/core/stores/slices/theme";
 import { useDispatch, useSelector } from "react-redux";
 
 const Handler: TFCChildren = ({ children }) => {

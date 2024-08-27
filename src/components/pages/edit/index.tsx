@@ -6,7 +6,7 @@ import { IUser } from "@/components/common/employee-table";
 import {
   useEditEmployee,
   useGetEmployeeById,
-} from "@/hooks/react-query/employee.query";
+} from "@/core/hooks/react-query/employee.query";
 import { FC } from "react";
 
 const Edit: FC<{ id: string }> = ({ id }) => {
