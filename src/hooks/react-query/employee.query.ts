@@ -1,4 +1,4 @@
-import { IUser } from "@/components/pages/employees/table";
+import { IUser } from "@/components/common/employee-table";
 import { EMPLOYEE } from "@/core/constants/api.constants";
 import {
   addEmployee,
@@ -20,7 +20,7 @@ import {
   UseQueryResult,
 } from "@tanstack/react-query";
 import { AxiosError } from "axios";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
 export const useAddEmployee = (): UseMutationResult<
@@ -28,8 +28,13 @@ export const useAddEmployee = (): UseMutationResult<
   AxiosError<IError>,
   IRequestBody<IUser>
 > => {
+  const router = useRouter();
+
   return useMutation({
     mutationFn: (body) => addEmployee(body),
+    onSuccess: () => {
+      router.push("/");
+    },
   });
 };
 export const useGetEmployees = (): UseQueryResult<IUser[]> => {
@@ -71,11 +76,13 @@ export const useEditEmployee = (): UseMutationResult<
   AxiosError<IError>,
   IRequestBody<IUser>
 > => {
+  const router = useRouter();
+
   return useMutation({
     mutationFn: (body) => editEmployee(body),
     onSuccess: () => {
       toast.success("Update the Employee is success!");
-      redirect("/test");
+      router.push("/");
     },
   });
 };

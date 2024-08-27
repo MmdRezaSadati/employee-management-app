@@ -1,19 +1,21 @@
 "use client";
+import { IUser } from "@/components/common/employee-table";
 import CustomInput from "@/components/common/input";
-import { IUser } from "@/components/pages/employees/table";
 import IconEditForm from "@/core/icons/icon-edit-form";
+import employeeFormValidation from "@/core/validations/employee-form.validation";
+import { Select, SelectItem } from "@nextui-org/react";
 import { Form, Formik } from "formik";
 import { CldImage } from "next-cloudinary";
 import { FC, useState } from "react";
 import ImageUploader from "../image-uploader";
 import AddCard from "./add-card";
-import employeeFormValidation from "@/core/validations/employee-form.validation";
 
 const EmployeeForm: FC<{ data?: IUser; onSubmit: (data: any) => void }> = ({
   data,
   onSubmit,
 }) => {
   const [cards, setCards] = useState(data?.cards ?? []);
+  const [status, setStatus] = useState(data?.status ?? "active");
   const [publicId, setPublicId] = useState<undefined | string>();
   const initialValues = data ?? {
     id: "",
@@ -28,12 +30,15 @@ const EmployeeForm: FC<{ data?: IUser; onSubmit: (data: any) => void }> = ({
     phoneNumber: "",
     birthDay: "",
   };
+  console.log(status);
   return (
     <Formik
       initialValues={initialValues}
       enableReinitialize
       validationSchema={employeeFormValidation}
-      onSubmit={(value) => onSubmit({ ...value, cards, avatar: publicId })}
+      onSubmit={(value) =>
+        onSubmit({ ...value, cards, avatar: publicId, status })
+      }
       className="relative flex h-auto flex-col overflow-hidden rounded-2xl p-2 text-gray-200">
       <Form>
         <div className="flex w-full flex-col items-start justify-start rounded-t-2xl px-4 pt-4">
@@ -42,7 +47,7 @@ const EmployeeForm: FC<{ data?: IUser; onSubmit: (data: any) => void }> = ({
             <div className="relative inline-flex text-white">
               <span className="flex size-14 items-center justify-center overflow-hidden rounded-full bg-zinc-700">
                 <CldImage
-                  className="flex size-full  object-cover"
+                  className="flex size-full bg-white object-cover  dark:bg-black-dark-light"
                   width={56}
                   height={56}
                   src={publicId ?? data?.avatar ?? ""}
@@ -76,7 +81,20 @@ const EmployeeForm: FC<{ data?: IUser; onSubmit: (data: any) => void }> = ({
           <CustomInput label="Name" name="name" />
           <CustomInput label="Role" name="role" />
           <CustomInput label="Team" name="team" />
-          <CustomInput label="Status" name="status" />
+          <Select
+            items={["active", "paused", "vacation"].map((item) => ({
+              key: item,
+              label: item,
+            }))}
+            label="Status"
+            errorMessage="The status field must not be empty"
+            placeholder="Select a status"
+            onChange={(e) => setStatus(e.target.value)}
+            value={status}
+            size="sm"
+            className="w-72">
+            {(card) => <SelectItem key={card.key}>{card.label} </SelectItem>}
+          </Select>
           <CustomInput label="Age" name="age" />
           <CustomInput label="Email" name="email" />
           <CustomInput label="Phone Number" name="phoneNumber" />

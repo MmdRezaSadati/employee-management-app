@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
-import Handler from "./handler";
-import Menu from "./menu";
+import Handler from "./components/handler";
+import Menu from "./components/menu";
 
 const Sidebar = () => {
   return (
@@ -14,7 +14,7 @@ const Sidebar = () => {
           height={28}
           className="!h-7 !w-auto"
         />
-        <h2>EMPLOYEE</h2>
+        <h2>Realtyna</h2>
       </Link>
       <Menu />
     </Handler>

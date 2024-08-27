@@ -1,7 +1,12 @@
 "use client";
+/// this component will be rendered on server by using tanstack query Hydration Boundary
+
 import { columns, statusOptions } from "@/core/constants/data";
-import useRenderCell from "@/hooks/common/render-cell.hook";
-import { useDeleteEmployee } from "@/hooks/react-query/employee.query";
+import renderCell from "@/core/utils/render-cell.utils";
+import {
+  useDeleteEmployee,
+  useGetEmployees,
+} from "@/hooks/react-query/employee.query";
 import {
   Button,
   Modal,
@@ -43,10 +48,8 @@ export interface IUser {
   caption: string;
 }
 
-const EmployeesTable: FC<{ isLoading?: boolean; data: IUser[] }> = ({
-  isLoading,
-  data,
-}) => {
+const EmployeesTable: FC<{ isLoading?: boolean }> = ({ isLoading }) => {
+  const { data = [] } = useGetEmployees();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [deleteId, setDeleteId] = useState<undefined | string>(undefined);
   const { mutate } = useDeleteEmployee();
@@ -62,14 +65,12 @@ const EmployeesTable: FC<{ isLoading?: boolean; data: IUser[] }> = ({
     direction: "ascending",
   });
   const [page, setPage] = useState(1);
-  const { renderCell } = useRenderCell(onOpen, setDeleteId);
   const pages = Math.ceil(data.length / rowsPerPage);
 
   const hasSearchFilter = Boolean(filterValue);
 
   const headerColumns = useMemo(() => {
     if (visibleColumns === "all") return columns;
-
     return columns.filter((column) =>
       Array.from(visibleColumns).includes(column.uid)
     );
@@ -222,7 +223,9 @@ const EmployeesTable: FC<{ isLoading?: boolean; data: IUser[] }> = ({
           {(item) => (
             <TableRow key={item.id}>
               {(columnKey) => (
-                <TableCell>{renderCell(item, columnKey)}</TableCell>
+                <TableCell>
+                  {renderCell(item, columnKey, onOpen, setDeleteId)}
+                </TableCell>
               )}
             </TableRow>
           )}

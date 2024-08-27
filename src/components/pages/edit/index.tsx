@@ -1,11 +1,13 @@
 "use client";
-import EmployeeForm from "@/components/common/employee-form";
+/// this component will be rendered on server by using tanstack query Hydration Boundary
+
+import { EmployeeForm } from "@/components/common";
+import { IUser } from "@/components/common/employee-table";
 import {
   useEditEmployee,
   useGetEmployeeById,
 } from "@/hooks/react-query/employee.query";
 import { FC } from "react";
-import { IUser } from "../employees/table";
 
 const Edit: FC<{ id: string }> = ({ id }) => {
   const { data } = useGetEmployeeById({ data: { Id: id } });
