@@ -1,16 +1,16 @@
 "use client";
 import { IUser } from "@/components/common/employee-table";
 import CustomInput from "@/components/common/input";
+import statusColorMap from "@/core/constants/status-color-map.constants";
 import IconEditForm from "@/core/icons/icon-edit-form";
 import employeeFormValidation from "@/core/validations/employee-form.validation";
-import { Chip, Select, SelectItem, user } from "@nextui-org/react";
+import { Chip, Select, SelectItem } from "@nextui-org/react";
 import { Form, Formik } from "formik";
 import { CldImage } from "next-cloudinary";
 import Link from "next/link";
 import { FC, useState } from "react";
 import ImageUploader from "../image-uploader";
 import AddCard from "./add-card";
-import statusColorMap from "@/core/constants/status-color-map.constants";
 
 const EmployeeForm: FC<{ data?: IUser; onSubmit: (data: any) => void }> = ({
   data,
