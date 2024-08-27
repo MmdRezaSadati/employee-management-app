@@ -15,7 +15,6 @@ const employeeFormValidation = yup.object().shape({
   name: yup.string().required("Name is required"),
   caption: yup.string().required("Caption is required"),
   team: yup.string().required("Team is required"),
-  status: yup.string().required("Status is required"),
   age: yup.string().required("Age is required"),
   role: yup.string().required("Role is required"),
   birthDay: yup.date().required("birthDay is required"),
