@@ -3,21 +3,16 @@ import IconVerticalDots from "@/core/icons/icon-vertical-dots";
 import {
   Button,
   Chip,
-  ChipProps,
   Dropdown,
   DropdownItem,
   DropdownMenu,
-  DropdownTrigger,
+  DropdownTrigger
 } from "@nextui-org/react";
 import { CldImage } from "next-cloudinary";
 import Link from "next/link";
 import { Dispatch, Key, SetStateAction } from "react";
+import statusColorMap from "../constants/status-color-map.constants";
 
-const statusColorMap: Record<string, ChipProps["color"]> = {
-  active: "success",
-  paused: "danger",
-  vacation: "warning",
-};
 type UserWithoutCards = Omit<IUser, "cards">;
 const renderCell = (
   user: UserWithoutCards,

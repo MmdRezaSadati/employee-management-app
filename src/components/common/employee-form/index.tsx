@@ -3,19 +3,21 @@ import { IUser } from "@/components/common/employee-table";
 import CustomInput from "@/components/common/input";
 import IconEditForm from "@/core/icons/icon-edit-form";
 import employeeFormValidation from "@/core/validations/employee-form.validation";
-import { Select, SelectItem } from "@nextui-org/react";
+import { Chip, Select, SelectItem, user } from "@nextui-org/react";
 import { Form, Formik } from "formik";
 import { CldImage } from "next-cloudinary";
+import Link from "next/link";
 import { FC, useState } from "react";
 import ImageUploader from "../image-uploader";
 import AddCard from "./add-card";
+import statusColorMap from "@/core/constants/status-color-map.constants";
 
 const EmployeeForm: FC<{ data?: IUser; onSubmit: (data: any) => void }> = ({
   data,
   onSubmit,
 }) => {
   const [cards, setCards] = useState(data?.cards ?? []);
-  const [status, setStatus] = useState(data?.status ?? "active");
+  const [status, setStatus] = useState<string>(data?.status ?? "active");
   const [publicId, setPublicId] = useState<undefined | string>();
   const initialValues = data ?? {
     id: "",
@@ -81,20 +83,45 @@ const EmployeeForm: FC<{ data?: IUser; onSubmit: (data: any) => void }> = ({
           <CustomInput label="Name" name="name" />
           <CustomInput label="Role" name="role" />
           <CustomInput label="Team" name="team" />
-          <Select
-            items={["active", "paused", "vacation"].map((item) => ({
-              key: item,
-              label: item,
-            }))}
-            label="Status"
-            errorMessage="The status field must not be empty"
-            placeholder="Select a status"
-            onChange={(e) => setStatus(e.target.value)}
-            value={status}
-            size="sm"
-            className="w-72">
-            {(card) => <SelectItem key={card.key}>{card.label} </SelectItem>}
-          </Select>
+          <div className="relative w-72">
+            <label
+              htmlFor="status-input"
+              className="absolute left-2.5 top-6 z-10 w-full cursor-pointer">
+              <Chip
+                className="gap-1 border-none capitalize text-default-600"
+                color={statusColorMap[status]}
+                size="sm"
+                variant="dot">
+                {status}
+              </Chip>
+            </label>
+            <Select
+              items={["active", "paused", "vacation"].map((item) => ({
+                key: item,
+                label: item,
+              }))}
+              id="status-input"
+              label="Status"
+              errorMessage="The status field must not be empty"
+              placeholder=" "
+              isInvalid={status === ""}
+              onChange={(e) => setStatus(e.target.value)}
+              value={status}
+              size="md">
+              {(item) => (
+                <SelectItem key={item.key}>
+                  <Chip
+                    className="gap-1 border-none capitalize text-default-600"
+                    color={statusColorMap[item.label]}
+                    size="sm"
+                    variant="dot">
+                    {item.label}
+                  </Chip>
+                </SelectItem>
+              )}
+            </Select>
+          </div>
+
           <CustomInput label="Age" name="age" />
           <CustomInput label="Email" name="email" />
           <CustomInput label="Phone Number" name="phoneNumber" />
@@ -109,9 +136,11 @@ const EmployeeForm: FC<{ data?: IUser; onSubmit: (data: any) => void }> = ({
           <AddCard setCards={setCards} cards={cards} />
         </div>
         <div className="mt-4 flex h-auto w-full items-center justify-end gap-2 overflow-hidden whitespace-nowrap rounded-b-2xl p-3 text-sm">
-          <button className="inline-flex h-10 w-20 min-w-[5.00rem] cursor-pointer items-center justify-center overflow-hidden rounded-full border-2 border-solid border-zinc-700 px-4 text-center">
+          <Link
+            href={"/"}
+            className="inline-flex h-10 w-20 min-w-[5.00rem] cursor-pointer items-center justify-center overflow-hidden rounded-full border-2 border-solid border-zinc-700 px-4 text-center">
             Cancel
-          </button>
+          </Link>
           <button
             type="submit"
             className="inline-flex h-10 w-32 min-w-[5.00rem] cursor-pointer items-center justify-center overflow-hidden rounded-full bg-blue-600 px-4 text-center text-white">
