@@ -7,6 +7,7 @@ import {
   useDeleteEmployee,
   useGetEmployees,
 } from "@/hooks/react-query/employee.query";
+import { TSearchSelector } from "@/stores/slices/search";
 import {
   Button,
   Modal,
@@ -24,11 +25,28 @@ import {
   TableRow,
   useDisclosure,
 } from "@nextui-org/react";
-import { FC, useMemo, useState } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
+import { useSelector } from "react-redux";
 import PaginationSection from "./pagination-section";
 import TableTopContent from "./table-top-content";
 
 const INITIAL_VISIBLE_COLUMNS = ["name", "role", "status", "actions"];
+
+const classNames = {
+  wrapper: ["max-h-[382px]", "max-w-3xl"],
+  th: ["bg-transparent", "text-default-500", "border-b", "border-divider"],
+  td: [
+    // changing the rows border radius
+    // first
+    "group-data-[first=true]:first:before:rounded-none",
+    "group-data-[first=true]:last:before:rounded-none",
+    // middle
+    "group-data-[middle=true]:before:rounded-none",
+    // last
+    "group-data-[last=true]:first:before:rounded-none",
+    "group-data-[last=true]:last:before:rounded-none",
+  ],
+};
 
 export interface IUser {
   id: number;
@@ -49,6 +67,9 @@ export interface IUser {
 }
 
 const EmployeesTable: FC<{ isLoading?: boolean }> = ({ isLoading }) => {
+  const searchValue: any = useSelector<TSearchSelector>(
+    (state) => state.searchSlice.value
+  );
   const { data = [] } = useGetEmployees();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [deleteId, setDeleteId] = useState<undefined | string>(undefined);
@@ -95,6 +116,9 @@ const EmployeesTable: FC<{ isLoading?: boolean }> = ({ isLoading }) => {
 
     return filteredEmployees;
   }, [data, filterValue, statusFilter]);
+  useEffect(() => {
+    setFilterValue(typeof searchValue === "string" ? searchValue : "");
+  }, [searchValue]);
 
   const items = useMemo(() => {
     const start = (page - 1) * rowsPerPage;
@@ -113,25 +137,6 @@ const EmployeesTable: FC<{ isLoading?: boolean }> = ({ isLoading }) => {
     });
   }, [sortDescriptor, items]);
   const loadingState = isLoading || data?.length === 0 ? "loading" : "idle";
-
-  const classNames = useMemo(
-    () => ({
-      wrapper: ["max-h-[382px]", "max-w-3xl"],
-      th: ["bg-transparent", "text-default-500", "border-b", "border-divider"],
-      td: [
-        // changing the rows border radius
-        // first
-        "group-data-[first=true]:first:before:rounded-none",
-        "group-data-[first=true]:last:before:rounded-none",
-        // middle
-        "group-data-[middle=true]:before:rounded-none",
-        // last
-        "group-data-[last=true]:first:before:rounded-none",
-        "group-data-[last=true]:last:before:rounded-none",
-      ],
-    }),
-    []
-  );
 
   return (
     <>
